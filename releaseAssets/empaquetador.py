@@ -50,7 +50,7 @@ shutil.copy(RUTA_ARTEFACTO, Path(RUTA_PAQ_WIN, f"creadorManual-{VERSION_ACTUAL}.
 shutil.copy(RUTA_ARTEFACTO, Path(RUTA_PAQ_LIN, f"creadorManual-{VERSION_ACTUAL}.jar"))
 
 launcher_windows = open(str(Path(RUTA_PAQ_WIN, "creadorManual.bat")), "x")
-launcher_windows.write("java -jar creadorManual.bat")
+launcher_windows.write(f"java -jar creadorManual-{VERSION_ACTUAL}.jar")
 launcher_windows.close()
 
 shutil.make_archive(
