@@ -24,7 +24,7 @@ class ListaPracticasTest {
             Practica("Entrada",5,"","src/test/resources/entrada.cpp",Paths.get("src/test/resources/5")),
             Practica("Iteración",6,"For","src/test/resources/iteracion.cpp",Paths.get("src/test/resources/6")),
         )
-        for (i in 0..practicas.size-1) {
+        for (i in practicas.indices) {
             val esperado = practicas[i]
             val obtendio = miLista.aPracticas(Paths.get("src/test/resources/"))[i]
             assertEquals(esperado.nombre, obtendio.nombre)
@@ -49,7 +49,7 @@ class ListaPracticasTest {
             Practica("Iteración",6,"For","no_existo.cpp",Paths.get("src/test/resources/")),
         )
         assertEquals(6, compendios.size)
-        for (i in 0..compendios.size-1) {
+        for (i in compendios.indices) {
             assertEquals(i, compendios[i].numeroCompendio)
             assertEquals(1, compendios[i].listaPracticas.size)
             assertEquals(practicasEsperadas[i].nombre, compendios[i].listaPracticas.first().nombre)
@@ -70,7 +70,7 @@ class ListaPracticasTest {
             Practica("Iteración",6,"For","no_existo.cpp",Paths.get("src/test/resources/")),
         )
         assertEquals(3, compendios.size)
-        for (i in 0..compendios.size-1) {
+        for (i in compendios.indices) {
             assertEquals(i, compendios[i].numeroCompendio)
             assertEquals(2, compendios[i].listaPracticas.size)
         }
@@ -96,7 +96,7 @@ class ListaPracticasTest {
             Practica("Iteración",6,"For","no_existo.cpp",Paths.get("src/test/resources/")),
         )
         assertEquals(2, compendios.size)
-        for (i in 0..compendios.size-1) {
+        for (i in compendios.indices) {
             assertEquals(i, compendios[i].numeroCompendio)
             assertEquals(3, compendios[i].listaPracticas.size)
         }
