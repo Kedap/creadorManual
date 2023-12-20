@@ -8,4 +8,6 @@ Un creador de manual simple
   (aunque estos ya se encuentran dentro de los paquetes)
 
 En el caso de que se este ejecutando en Windows, se necesita configurar un compilador de C++, puede ser cualquiera
-solo asegúrese de que el compilador se encuentre dentro del PATH de ejecución, en el mismo que se ejecuta `manualCreator` 
+solo asegúrese de que el compilador se encuentre dentro del PATH de ejecución, en el mismo que se ejecuta `manualCreator`
+
+![Captura](./screenshot.png)
