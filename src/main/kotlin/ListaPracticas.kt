@@ -22,6 +22,7 @@ class ListaPracticas(private val ruta: String) {
     fun obtenerNumRegistros(): Int? {
         return this.registros
     }
+
     fun aPracticas(rutaTrabajo: Path): List<Practica> {
         val practicas = mutableListOf<Practica>()
         for (fila in this.hoja!!) {
@@ -32,7 +33,7 @@ class ListaPracticas(private val ruta: String) {
                 obtenerValorCelda(fila.getCell(1)),
                 obtenerValorCelda(fila.getCell(0)).toInt(),
                 observaciones,
-                Paths.get(rutaTrabajo.toString(),obtenerValorCelda(fila.getCell(3))).toString(),
+                Paths.get(rutaTrabajo.toString(), obtenerValorCelda(fila.getCell(3))).toString(),
                 Paths.get(rutaTrabajo.toString(), obtenerValorCelda(fila.getCell(0)).toInt().toString()),
             )
             practicas.add(practica)
@@ -41,42 +42,59 @@ class ListaPracticas(private val ruta: String) {
     }
 
     fun practicasACompendios(practicas: List<Practica>, numPorCompendio: Int): List<CompendioPracticas> {
+        val practicasIrregulares = practicas.size % numPorCompendio
+        if (practicasIrregulares == 0) {
+            return dividirPracticas(practicas,0,numPorCompendio)
+        } else {
+            val listaRegulares = practicas.slice(0..<numPorCompendio)
+            val compendios = dividirPracticas(listaRegulares,0,numPorCompendio)
+            val listaIrregulares = practicas.slice(numPorCompendio..<practicas.size)
+            val compendiosIrregulares = dividirPracticas(listaIrregulares,compendios.last().numeroCompendio+1,practicasIrregulares)
+            return compendios.plus(compendiosIrregulares)
+        }
+    }
+
+    private fun dividirPracticas(
+        practicas: List<Practica>,
+        primerIndice: Int,
+        practicasPorCompendio: Int
+    ): List<CompendioPracticas> {
         val rutaTrabajo = practicas[0].rutaAbsoluta!!.parent
         val compendios = mutableListOf<CompendioPracticas>()
         var practicasCompendio = mutableListOf<Practica>()
-        var contadorCompendios = 0
+        var contadorCompendios = primerIndice
         for (i in practicas.indices) {
             when {
-                numPorCompendio == 1 -> {
+                practicasPorCompendio == 1 -> {
                     compendios.add(
                         CompendioPracticas(
                             contadorCompendios,
                             listOf(practicas[i]),
-                            numPorCompendio,
+                            practicasPorCompendio,
                             rutaTrabajo
                         )
                     )
                     contadorCompendios++
                 }
+
                 i == 0 -> practicasCompendio.add(practicas[i])
-                i % numPorCompendio == 0 -> {
+                i % practicasPorCompendio == 0 -> {
                     practicasCompendio = mutableListOf()
                     practicasCompendio.add(practicas[i])
                 }
 
-                i == (numPorCompendio-1) || i % numPorCompendio == (numPorCompendio-1) -> {
+                i == (practicasPorCompendio - 1) || i % practicasPorCompendio == (practicasPorCompendio - 1) -> {
                     practicasCompendio.add(practicas[i])
                     compendios.add(
                         CompendioPracticas(
                             contadorCompendios,
                             practicasCompendio.toList(),
-                            numPorCompendio,
+                            practicasPorCompendio,
                             rutaTrabajo
                         )
                     )
                     contadorCompendios++
                 }
-
                 else -> practicasCompendio.add(practicas[i])
             }
         }

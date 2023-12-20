@@ -107,4 +107,64 @@ class ListaPracticasTest {
         assertEquals(practicasEsperadas[4].nombre, compendios[1].listaPracticas[1].nombre)
         assertEquals(practicasEsperadas[5].nombre, compendios[1].listaPracticas[2].nombre)
     }
+
+    @Test
+    fun practicasACompendios5() {
+        val miLista = ListaPracticas("src/test/resources/test.xlsx")
+        val practicas = miLista.aPracticas(Paths.get("src/test/resources/"))
+        val compendios = miLista.practicasACompendios(practicas,5)
+        val practicasEsperadas = listOf(
+            Practica("Hola mundo",1,"","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Matrices",2,"","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Tabla del 9",3,"For","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Tabla del 9",4,"While","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Entrada",5,"","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Iteración",6,"For","no_existo.cpp",Paths.get("src/test/resources/")),
+        )
+        assertEquals(2, compendios.size)
+        for (i in compendios.indices) {
+            assertEquals(i, compendios[i].numeroCompendio)
+            if (i == 1) {
+                assertEquals(1, compendios[i].listaPracticas.size)
+            } else {
+                assertEquals(5, compendios[i].listaPracticas.size)
+            }
+        }
+        assertEquals(practicasEsperadas[0].nombre, compendios[0].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[1].nombre, compendios[0].listaPracticas[1].nombre)
+        assertEquals(practicasEsperadas[2].nombre, compendios[0].listaPracticas[2].nombre)
+        assertEquals(practicasEsperadas[3].nombre, compendios[0].listaPracticas[3].nombre)
+        assertEquals(practicasEsperadas[4].nombre, compendios[0].listaPracticas[4].nombre)
+        assertEquals(practicasEsperadas[5].nombre, compendios[1].listaPracticas[0].nombre)
+    }
+
+    @Test
+    fun practicasACompendios4() {
+        val miLista = ListaPracticas("src/test/resources/test.xlsx")
+        val practicas = miLista.aPracticas(Paths.get("src/test/resources/"))
+        val compendios = miLista.practicasACompendios(practicas,4)
+        val practicasEsperadas = listOf(
+            Practica("Hola mundo",1,"","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Matrices",2,"","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Tabla del 9",3,"For","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Tabla del 9",4,"While","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Entrada",5,"","no_existo.cpp",Paths.get("src/test/resources/")),
+            Practica("Iteración",6,"For","no_existo.cpp",Paths.get("src/test/resources/")),
+        )
+        assertEquals(2, compendios.size)
+        for (i in compendios.indices) {
+            assertEquals(i, compendios[i].numeroCompendio)
+            if (i == 1) {
+                assertEquals(2, compendios[i].listaPracticas.size)
+            } else {
+                assertEquals(4, compendios[i].listaPracticas.size)
+            }
+        }
+        assertEquals(practicasEsperadas[0].nombre, compendios[0].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[1].nombre, compendios[0].listaPracticas[1].nombre)
+        assertEquals(practicasEsperadas[2].nombre, compendios[0].listaPracticas[2].nombre)
+        assertEquals(practicasEsperadas[3].nombre, compendios[0].listaPracticas[3].nombre)
+        assertEquals(practicasEsperadas[4].nombre, compendios[1].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[5].nombre, compendios[1].listaPracticas[1].nombre)
+    }
 }
