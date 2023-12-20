@@ -6,3 +6,6 @@ Un creador de manual simple
 - `leafpad` si esta en Linux
 - Capturadores como [silicon](https://github.com/Aloxaf/silicon) y/o [germanium](https://github.com/matsuyoshi30/germanium)
   (aunque estos ya se encuentran dentro de los paquetes)
+
+En el caso de que se este ejecutando en Windows, se necesita configurar un compilador de C++, puede ser cualquiera
+solo asegúrese de que el compilador se encuentre dentro del PATH de ejecución, en el mismo que se ejecuta `manualCreator` 
