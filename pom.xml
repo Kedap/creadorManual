@@ -6,7 +6,7 @@
 
     <groupId>org.isc4151.dan.creadorManual</groupId>
     <artifactId>creadorManual</artifactId>
-    <version>1.0-beta</version>
+    <version>1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
