@@ -144,6 +144,10 @@ class Practica(
         this.moverCodigo()
     }
 
+    fun existeCodigoFuente(): Boolean {
+        return File(this.codigo).exists()
+    }
+
     private fun moverCodigo() {
         if (this.rutaCodigo != null) throw Exception("Parece que ya se movio el codigo")
         val fuenteCodigo = Paths.get(this.codigo)

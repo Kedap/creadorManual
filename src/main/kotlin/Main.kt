@@ -8,6 +8,7 @@ import org.isc4151.dan.creadorManual.utilidadesEjecutables.Compilador
 import org.isc4151.dan.creadorManual.utilidadesEjecutables.EditoresTexto
 import java.io.FileWriter
 import java.nio.file.Paths
+import kotlin.system.exitProcess
 
 fun main() {
     val preguntarExcel = EntradaUsuario("Ingresa la ruta de tu archivo Excel")
@@ -45,6 +46,15 @@ fun main() {
     println("Se han encontrado ${archivoExcel.obtenerNumRegistros()} registros")
 
     val todasPracticas = archivoExcel.aPracticas(Paths.get(rutaTrabajo,rutaCodigo))
+
+    println("Verificando que existan los archivos dentro de su lista...")
+    for (practica in todasPracticas) {
+        if (!practica.existeCodigoFuente()) {
+            println("El archivo ${practica.codigo} de la practica ${practica.nombre} no fue encontrado brow :/")
+            exitProcess(1)
+        }
+    }
+
     val compendios = archivoExcel.practicasACompendios(todasPracticas,practicasPorCompendio)
     println("Se estan contemplando ${compendios.size} compendios")
 

@@ -159,4 +159,26 @@ class PracticaTest {
 //        val silicon = Capturador("silicon", "silicon", null)
 //        ejemplo.crearCapturas(silicon)
 //    }
+
+    @Test
+    fun existeCodigoFuenteTest() {
+        val practicas = listOf(
+            Practica(
+                nombre = "Hola mundo",
+                id = 1,
+                observacion = "",
+                codigo = Paths.get("src/test/resources/ejemplosCodigo", "hola_mundo.cpp").toString(),
+                rutaAbsoluta = null
+            ),
+            Practica(
+                nombre = "Matrices",
+                id = 2,
+                observacion = "",
+                codigo = Paths.get("src/test/resources/ejemplosCodigo", "matricez.cpp").toString(),
+                rutaAbsoluta = null
+            )
+        )
+        assert(practicas[0].existeCodigoFuente())
+        assert(!practicas[1].existeCodigoFuente())
+    }
 }
