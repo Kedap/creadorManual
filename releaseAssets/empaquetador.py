@@ -4,7 +4,7 @@ from pathlib import Path
 import shutil
 
 
-VERSION_ACTUAL = "1.0"
+VERSION_ACTUAL = "1.1"
 
 RUTA_RELASSETS = Path(os.path.realpath(__file__)).parent
 RUTA_REPO = Path(os.path.realpath(__file__)).parent.parent
