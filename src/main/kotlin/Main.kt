@@ -50,7 +50,7 @@ fun main() {
     println("Verificando que existan los archivos dentro de su lista...")
     for (practica in todasPracticas) {
         if (!practica.existeCodigoFuente()) {
-            println("El archivo ${practica.codigo} de la practica ${practica.nombre} no fue encontrado brow :/")
+            println("El archivo ${practica.codigo} de la practica ${practica.nombre}(${practica.id}) no fue encontrado brow :/")
             exitProcess(1)
         }
     }
