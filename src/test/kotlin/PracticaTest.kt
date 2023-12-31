@@ -21,7 +21,13 @@ class PracticaTest {
 
     @Test
     fun compilar() {
-        val ejemplo = Practica("Prueba1", 0, "", "src/test/resources/prueba.cpp", Paths.get("src/test/resources/1"))
+        val ejemplo = Practica(
+            "Prueba1",
+            0,
+            "",
+            "src/test/resources/prueba.cpp",
+            Paths.get("src/test/resources/1")
+        )
         val gcc = Compilador("g++", "Gnu Compiler", null)
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar(gcc)
@@ -32,7 +38,13 @@ class PracticaTest {
 
     @Test
     fun compilarCompiladorArgumentos() {
-        val ejemplo = Practica("Prueba1", 0, "", "src/test/resources/prueba.cpp", Paths.get("src/test/resources/1"))
+        val ejemplo = Practica(
+            "Prueba1",
+            0,
+            "",
+            "src/test/resources/prueba.cpp",
+            Paths.get("src/test/resources/1")
+        )
         val gcc = Compilador("g++", "Gnu Compiler", listOf("-Wall"))
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar(gcc)
@@ -55,7 +67,13 @@ class PracticaTest {
 
     @Test
     fun crearEntradas() {
-        val ejemplo = Practica("Prueba1", 0, "", "src/test/resources/prueba.cpp", Paths.get("src/test/resources/1"))
+        val ejemplo = Practica(
+            "Prueba1",
+            0,
+            "",
+            "src/test/resources/prueba.cpp",
+            Paths.get("src/test/resources/1")
+        )
         val gcc = Compilador("g++", "Gnu Compiler", null)
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar(gcc)
@@ -68,7 +86,13 @@ class PracticaTest {
 
     @Test
     fun crearEntradasVacias() {
-        val ejemplo = Practica("Prueba2", 1, "", "src/test/resources/vacia.cpp", Paths.get("src/test/resources/2"))
+        val ejemplo = Practica(
+            "Prueba2",
+            1,
+            "",
+            "src/test/resources/vacia.cpp",
+            Paths.get("src/test/resources/2")
+        )
         val gcc = Compilador("g++", "Gnu Compiler", null)
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar(gcc)
@@ -81,7 +105,13 @@ class PracticaTest {
 
     @Test
     fun ejecutarSinEntradas() {
-        val ejemplo = Practica("Prueba2", 1, "", "src/test/resources/vacia.cpp", Paths.get("src/test/resources/2"))
+        val ejemplo = Practica(
+            "Prueba2",
+            1,
+            "",
+            "src/test/resources/vacia.cpp",
+            Paths.get("src/test/resources/2")
+        )
         val gcc = Compilador("g++", "Gnu Compiler", null)
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar(gcc)
@@ -102,7 +132,13 @@ class PracticaTest {
 
     @Test
     fun crearCapturas() {
-        val ejemplo = Practica("Prueba2", 1, "", "src/test/resources/vacia.cpp", Paths.get("src/test/resources/2"))
+        val ejemplo = Practica(
+            "Prueba2",
+            1,
+            "",
+            "src/test/resources/vacia.cpp",
+            Paths.get("src/test/resources/2")
+        )
         val gcc = Compilador("g++", "Gnu Compiler", null)
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar(gcc)
@@ -137,12 +173,12 @@ class PracticaTest {
 
         var capturaCodigo = Files.readAllBytes(Paths.get("src/test/resources/2/capturas/codigos/vacia.png"))
         var hash = MessageDigest.getInstance("MD5").digest(capturaCodigo)
-        var suma = BigInteger(1,hash).toString(16)
-        assertEquals("f70ea09d2ef1d194f114c46193403159",suma)
+        var suma = BigInteger(1, hash).toString(16)
+        assertEquals("f70ea09d2ef1d194f114c46193403159", suma)
         capturaCodigo = Files.readAllBytes(Paths.get("src/test/resources/2/capturas/salidas/vacia.png"))
         hash = MessageDigest.getInstance("MD5").digest(capturaCodigo)
-        suma = BigInteger(1,hash).toString(16)
-        assertEquals("bb3a5b13baf2efe3200b74c5575fdd01",suma)
+        suma = BigInteger(1, hash).toString(16)
+        assertEquals("bb3a5b13baf2efe3200b74c5575fdd01", suma)
         this.limpiar(ejemplo)
     }
 
