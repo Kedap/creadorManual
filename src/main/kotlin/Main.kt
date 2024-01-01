@@ -41,9 +41,9 @@ fun main() {
     preguntarModSalidas.mostrar()
     val modificarSalidas = preguntarModSalidas.obtenerEntrada()
 
-    val preguntarModPrompt = EntradaUsuarioCerrada("¿Quiere utilizar el prompt GPT por defecto?")
+    val preguntarModPrompt = EntradaUsuarioCerrada("¿Quiere cambiar el prompt GPT por defecto?")
     preguntarModPrompt.mostrar()
-    val utilizarPromptDefecto = preguntarModPrompt.obtenerEntrada()
+    val modPromptDefecto = preguntarModPrompt.obtenerEntrada()
 
     println("Leyendo el archivo $rutaExcel")
     val archivoExcel = ListaPracticas(rutaExcel)
@@ -78,7 +78,7 @@ fun main() {
         }
     }
 
-    if (!utilizarPromptDefecto) {
+    if (modPromptDefecto) {
         val preguntarFormato = EntradaUsuario("Ingresa la ruta del formato en donde esta tu prompt")
         preguntarFormato.mostrar()
         val rutaFormato = preguntarFormato.obtenerEntrada()
