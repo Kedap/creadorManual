@@ -1,5 +1,6 @@
 package org.isc4151.dan.creadorManual
 
+import java.io.File
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -43,9 +44,9 @@ class CompendioPracticas(
         return nuevasPracticas
     }
 
-    private fun crearEntradaGPT(): String{
+    private fun crearEntradaGPT(): String {
         if (titulo == null) throw Exception("No se ha creado ningún titulo como para crear el prompt")
-        return  """
+        return """
             Eres un estudiante de universidad y tienes que escribir una breve conclusion
             para un manual fundamentos de programación en donde se lista(n) $practicasPorCompendio practica(s) en
             c++, utilizando este lenguaje para dichas practicas tienen como nombre '$titulo'.
@@ -61,6 +62,15 @@ class CompendioPracticas(
             
             Ahora escribe tu la conclusión para $practicasPorCompendio practica(s) que tiene(n) como titulo '$titulo':
         """.trimIndent()
+    }
+
+    fun crearNuevaEntradaGPT(rutaFormato: Path) {
+        var contenidoArchivo = File(rutaFormato.toString()).readText()
+        val busquedaPracticas = Regex("#n(um(ero)?)?practicas#", RegexOption.IGNORE_CASE)
+        contenidoArchivo = contenidoArchivo.replace(busquedaPracticas, practicasPorCompendio.toString())
+        val busquedaTitulo = Regex("#titulo#", RegexOption.IGNORE_CASE)
+        contenidoArchivo = contenidoArchivo.replace(busquedaTitulo, titulo.toString())
+        this.entradaGPT = contenidoArchivo
     }
 
     fun obtenerTitulo(): String? {

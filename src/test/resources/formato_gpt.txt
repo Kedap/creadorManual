@@ -1,0 +1,6 @@
+Esta es una prueba de ejemplo de como se puede utilizar este formato
+nuestro compendio tiene #numPracticas# practicas, por lo tanto, este mismo tiene
+#NUMEROPRACTICAS# es necesario tener en encuenta esto.
+Al igual #nPracticas#
+
+El compendio en cuestion tiene como titulo #titulo#

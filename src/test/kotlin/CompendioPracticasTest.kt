@@ -81,4 +81,15 @@ class CompendioPracticasTest {
             assertEquals(practica.rutaAbsoluta!!,Paths.get("src/test/resources/1"))
         }
     }
+
+    @Test
+    fun utilizarFormatoGPT() {
+        val practicas = listOf(
+            Practica("Prueba1", 0, "", "prueba.cpp", Paths.get("src/test/resources/")),
+            Practica("Prueba2", 1, "", "vacia.cpp", Paths.get("src/test/resources/"))
+        )
+        val miCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
+        miCompendio.crearNuevaEntradaGPT(Paths.get("src/test/resources/formato_gpt.txt"))
+        assertEquals(File("src/test/resources/formato_esperado.txt").readText(), miCompendio.entradaGPT)
+    }
 }
