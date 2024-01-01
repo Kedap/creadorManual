@@ -90,7 +90,8 @@ class Practica(
         if (this.rutaSalida == null) throw Exception("No se puede modificar la salida si no se ha creado")
         val comando = "${e.comando} ${this.rutaSalida}"
         Runtime.getRuntime().exec(comando)
-        println("Preciona ENTER cuando hayas dejado de modificar")
+        println("Abriendo ${this.nombre} (${this.rutaSalida})...")
+        println("Presiona ENTER cuando hayas dejado de modificar")
         readln()
     }
 
