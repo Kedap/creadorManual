@@ -34,6 +34,10 @@ ruta_plantilla = Path(RUTA_RELASSETS, "plantilla.xlsx")
 shutil.copy(ruta_plantilla, Path(RUTA_PAQ_WIN, "plantilla.xlsx"))
 shutil.copy(ruta_plantilla, Path(RUTA_PAQ_LIN, "plantilla.xlsx"))
 
+ruta_formato_gpt = Path(RUTA_RELASSETS, "formato_prompt.txt")
+shutil.copy(ruta_formato_gpt, Path(RUTA_PAQ_WIN, "formato_prompt.txt"))
+shutil.copy(ruta_formato_gpt, Path(RUTA_PAQ_LIN, "formato_prompt.txt"))
+
 RUTA_BIN_WIN = Path(RUTA_PAQ_WIN, "binarios")
 RUTA_BIN_LIN = Path(RUTA_PAQ_LIN, "binarios")
 RUTA_BIN_WIN.mkdir()
