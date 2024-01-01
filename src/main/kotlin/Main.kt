@@ -41,6 +41,10 @@ fun main() {
     preguntarModSalidas.mostrar()
     val modificarSalidas = preguntarModSalidas.obtenerEntrada()
 
+    val preguntarModPrompt = EntradaUsuarioCerrada("¿Quiere utilizar el prompt GPT por defecto?")
+    preguntarModPrompt.mostrar()
+    val utilizarPromptDefecto = preguntarModPrompt.obtenerEntrada()
+
     println("Leyendo el archivo $rutaExcel")
     val archivoExcel = ListaPracticas(rutaExcel)
     println("Se han encontrado ${archivoExcel.obtenerNumRegistros()} registros")
@@ -72,6 +76,13 @@ fun main() {
             compilador.borrarArgumentos()
             capturador.borrarArgumentos()
         }
+    }
+
+    if (!utilizarPromptDefecto) {
+        val preguntarFormato = EntradaUsuario("Ingresa la ruta del formato en donde esta tu prompt")
+        preguntarFormato.mostrar()
+        val rutaFormato = preguntarFormato.obtenerEntrada()
+        for (compendio in compendios) compendio.crearNuevaEntradaGPT(Paths.get(rutaFormato))
     }
 
     val rutaCSV = Paths.get(rutaTrabajo,"practicas.csv")
