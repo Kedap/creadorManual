@@ -1,7 +1,7 @@
 import org.apache.commons.csv.CSVFormat
-import org.isc4151.dan.creadorManual.CompendioPracticas
-import org.isc4151.dan.creadorManual.Practica
-import org.isc4151.dan.creadorManual.escribirCSV
+import org.isc4151.dan.creadorManual.*
+import org.isc4151.dan.creadorManual.utilidadesEjecutables.Capturador
+import org.isc4151.dan.creadorManual.utilidadesEjecutables.Compilador
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Assertions.*
 import java.io.File
 import java.io.FileWriter
 import java.io.InputStream
+import java.nio.file.Files
 import java.nio.file.Paths
 
 class EscribirCSVKtTest {
@@ -18,29 +19,84 @@ class EscribirCSVKtTest {
         File("src/test/resources/todos.csv").delete()
     }
 
+    private fun limpiar(p: Practica) {
+        val codigoActual = p.obtenerRutacodigo()
+        val codigoEsperado = Paths.get("src/test/resources/", codigoActual!!.fileName.toString())
+        Files.move(codigoActual, codigoEsperado)
+        File(p.rutaAbsoluta!!.toString()).deleteRecursively()
+    }
     @Test
     fun escribirCSV() {
-        val practicas1 = listOf(
-            Practica("Numeros pares", 1, "Switch", "", null),
-            Practica("Numeros impares", 2, "If-else", "", null)
+        val practicas = listOf(
+            Practica(
+                "Prueba1",
+                2,
+                "Practica super chida",
+                "src/test/resources/vacia.cpp",
+                Paths.get("src/test/resources/2")
+            )
         )
-        val primerCompendio = CompendioPracticas(1,practicas1,2, Paths.get("src/test/resources/"))
-        val practicas2 = listOf(
-            Practica("Posada en algunas cosas", 3, "", "", null),
-            Practica("Arbol de navidad", 4, "NAVIDAD", "", null)
-        )
-        val segundoCompendio = CompendioPracticas(1,practicas2,2, Paths.get("src/test/resources/"))
+        val primerCompendio = CompendioPracticas(2,practicas,1, Paths.get("src/test/resources/"))
         val archivoCSV = FileWriter("src/test/resources/todos.csv")
-        archivoCSV.escribirCSV(listOf(primerCompendio,segundoCompendio))
+        val gcc = Compilador("g++", "Gnu Compiler", null)
+        practicas[0].generarCarpetaTrab()
+        practicas[0].compilar(gcc)
+        practicas[0].crearEntradas()
+        practicas[0].ejecutar()
+        val silicon = Capturador("silicon", "silicon", null)
+        practicas[0].crearCapturas(silicon)
+        archivoCSV.escribirCSV(listOf(primerCompendio))
         archivoCSV.close()
         assert(File("src/test/resources/todos.csv").exists())
         val titulos = this.leerCSV(File("src/test/resources/todos.csv").inputStream())
-        assertEquals("Numeros pares (Switch) y numeros impares (If-else)",titulos[0])
-        assertEquals("Posada en algunas cosas y arbol de navidad (NAVIDAD)",titulos[1])
+        assertEquals("Prueba1 (Practica super chida)",titulos[0])
+        this.limpiar(practicas[0])
+    }
+
+    @Test
+    fun escribirCSVImagenes() {
+        val ejemplo = Practica(
+            "Prueba2",
+            2,
+            "",
+            "src/test/resources/vacia.cpp",
+            Paths.get("src/test/resources/2")
+        )
+        val gcc = Compilador("g++", "Gnu Compiler", null)
+        ejemplo.generarCarpetaTrab()
+        ejemplo.compilar(gcc)
+        ejemplo.crearEntradas()
+        ejemplo.ejecutar()
+        val silicon = Capturador("silicon", "silicon", null)
+        ejemplo.crearCapturas(silicon)
+        val primerCompendio = CompendioPracticas(2, listOf(ejemplo),1,Paths.get("src/test/resources"))
+        val archivoCSV = FileWriter("src/test/resources/todos.csv")
+        archivoCSV.escribirCSV(listOf(primerCompendio))
+        archivoCSV.close()
+        val imagenesCodigo = this.leerCSVImgCodigo(File("src/test/resources/todos.csv").inputStream())
+        val imagenesSalida = this.leerCSVImgSalida(File("src/test/resources/todos.csv").inputStream())
+        if (obtenerOS() == SistemaOperativo.LINUX) {
+            assert(imagenesCodigo[0].contains("src/test/resources/2/capturas/codigos/vacia.png"))
+            assert(imagenesSalida[0].contains("src/test/resources/2/capturas/salidas/vacia.png"))
+        } else {
+            assert(imagenesCodigo[0].contains("src\\\\test\\\\resources\\\\2\\\\capturas\\\\codigos\\\\vacia.png"))
+            assert(imagenesSalida[0].contains("src\\\\test\\\\resources\\\\2\\\\capturas\\\\salidas\\\\vacia.png"))
+        }
+        this.limpiar(ejemplo)
     }
 
     // Retorna una lista con los titutlos, solo de esa columna
     private fun leerCSV(iS: InputStream): List<String> {
         return CSVFormat.Builder.create(CSVFormat.DEFAULT).build().parse(iS.reader()).drop(1).map { it[0] }
+    }
+
+    // Retorna una lista con las imagenes del codigo, solo de esa columna
+    private fun leerCSVImgCodigo(iS: InputStream): List<String> {
+        return CSVFormat.Builder.create(CSVFormat.DEFAULT).build().parse(iS.reader()).drop(1).map { it[2] }
+    }
+
+    // Retorna una lista con las imagenes de las salidas, solo de esa columna
+    private fun leerCSVImgSalida(iS: InputStream): List<String> {
+        return CSVFormat.Builder.create(CSVFormat.DEFAULT).build().parse(iS.reader()).drop(1).map { it[3] }
     }
 }

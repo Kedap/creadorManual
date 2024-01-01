@@ -9,6 +9,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.concurrent.TimeUnit
+import kotlin.io.path.absolute
 
 class Practica(
     val nombre: String,
@@ -170,5 +171,16 @@ class Practica(
 
     fun cambiarRutaAbsoluta(ruta: Path) {
         this.rutaAbsoluta = ruta
+    }
+
+    fun obtenerRutaCapturas(): Pair<String, String> {
+        if (this.capturaCodigo==null||this.capturaSalida==null) {
+            throw Exception("Parece que aun no se toman las capturas :/")
+        }
+        val ccodigo = Paths.get(this.capturaCodigo!!).absolute().toString()
+        ccodigo.replace("\\","\\\\")
+        val csalida = Paths.get(this.capturaSalida!!).absolute().toString()
+        csalida.replace("\\","\\\\")
+        return Pair(ccodigo,csalida)
     }
 }
