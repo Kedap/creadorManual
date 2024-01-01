@@ -10,7 +10,7 @@ class CompendioPracticas(
     private val practicasPorCompendio: Int,
     private val rutaTrabajo: Path
 ) {
-    private val rutaAbsoluta = Paths.get(rutaTrabajo.toString(),numeroCompendio.toString())
+    private val rutaAbsoluta = Paths.get(rutaTrabajo.toString(), numeroCompendio.toString())
     var listaPracticas = this.cambiarRutaPracticas()
     var titulo: String? = this.crearTitulo()
     var entradaGPT: String? = crearEntradaGPT()
@@ -19,11 +19,11 @@ class CompendioPracticas(
         var nuevoTitulo = ""
         for (practica in practicas) {
             var obseravacion = ""
-            if (practica.observacion != "") obseravacion=" (${practica.observacion})"
+            if (practica.observacion != "") obseravacion = " (${practica.observacion})"
 
             if (nuevoTitulo.isEmpty()) {
                 nuevoTitulo = practica.nombre + obseravacion
-            } else if (practica === practicas.last()){
+            } else if (practica === practicas.last()) {
                 val primeraLetraSiguientePrac = practica.nombre.lowercase().first()
                 var anexo = " y "
                 if (primeraLetraSiguientePrac == 'y' || primeraLetraSiguientePrac == 'i') anexo = " e "

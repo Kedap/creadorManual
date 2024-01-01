@@ -3,6 +3,7 @@ import org.isc4151.dan.creadorManual.Practica
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import java.io.File
 import java.nio.file.Paths
 
 class CompendioPracticasTest {
@@ -13,7 +14,7 @@ class CompendioPracticasTest {
             Practica("Numeros pares", 1, "", "", null),
             Practica("Numeros impares", 2, "", "", null)
         )
-        val nuevoCompendio = CompendioPracticas(1,practicas,2, Paths.get("src/test/resources/"))
+        val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Numeros pares y numeros impares")
     }
 
@@ -23,7 +24,7 @@ class CompendioPracticasTest {
             Practica("Numeros pares", 1, "Switch", "", null),
             Practica("Numeros impares", 2, "If-else", "", null)
         )
-        val nuevoCompendio = CompendioPracticas(1,practicas,2,Paths.get("src/test/resources/"))
+        val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Numeros pares (Switch) y numeros impares (If-else)")
     }
 
@@ -33,7 +34,7 @@ class CompendioPracticasTest {
             Practica("Numeros pares", 1, "", "", null),
             Practica("Igualdad entre numeros", 2, "", "", null)
         )
-        val nuevoCompendio = CompendioPracticas(1,practicas,2,Paths.get("src/test/resources/"))
+        val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Numeros pares e igualdad entre numeros")
     }
 
@@ -43,7 +44,7 @@ class CompendioPracticasTest {
             Practica("Comparaciones entre si", 1, "", "", null),
             Practica("Matrices", 2, "", "", null)
         )
-        val nuevoCompendio = CompendioPracticas(1,practicas,2,Paths.get("src/test/resources/"))
+        val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Comparaciones entre si y matrices")
     }
 
@@ -54,7 +55,7 @@ class CompendioPracticasTest {
             Practica("Matrices", 2, "Arreglos", "", null),
             Practica("Condicionales", 3, "", "", null)
         )
-        val nuevoCompendio = CompendioPracticas(1,practicas,3,Paths.get("src/test/resources/"))
+        val nuevoCompendio = CompendioPracticas(1, practicas, 3, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Comparaciones entre si, matrices (Arreglos) y condicionales")
     }
 
@@ -64,9 +65,9 @@ class CompendioPracticasTest {
             Practica("Comparaciones entre si", 1, "", "", null),
             Practica("Matrices", 2, "", "", null)
         )
-        val nuevoCompendio = CompendioPracticas(1,practicas,2,Paths.get("src/test/resources/"))
+        val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerRutaAbsoluta(), "src/test/resources/1")
-        val otroCompendio = CompendioPracticas(10,practicas,2,Paths.get("src/test/resources/"))
+        val otroCompendio = CompendioPracticas(10, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(otroCompendio.obtenerRutaAbsoluta(), "src/test/resources/10")
     }
 
@@ -76,9 +77,9 @@ class CompendioPracticasTest {
             Practica("Prueba1", 0, "", "prueba.cpp", Paths.get("src/test/resources/")),
             Practica("Prueba2", 1, "", "vacia.cpp", Paths.get("src/test/resources/"))
         )
-        val miCompendio = CompendioPracticas(1,practicas,2,Paths.get("src/test/resources/"))
+        val miCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         for (practica in miCompendio.listaPracticas) {
-            assertEquals(practica.rutaAbsoluta!!,Paths.get("src/test/resources/1"))
+            assertEquals(practica.rutaAbsoluta!!, Paths.get("src/test/resources/1"))
         }
     }
 
