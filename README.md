@@ -10,4 +10,9 @@ Un creador de manual simple
 En el caso de que se este ejecutando en Windows, se necesita configurar un compilador de C++, puede ser cualquiera
 solo asegúrese de que el compilador se encuentre dentro del PATH de ejecución, en el mismo que se ejecuta `manualCreator`
 
+## Descarga
+Después de haber leído las [dependencias](#dependencias) puedes descargar el paquete
+en este [link](https://github.com/Kedap/creadorManual/releases/latest), selecciona de 
+acuerdo a tu sistema operativo
+
 ![Captura](./screenshot.png)
