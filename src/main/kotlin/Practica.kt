@@ -175,13 +175,13 @@ class Practica(
     }
 
     fun obtenerRutaCapturas(): Pair<String, String> {
-        if (this.capturaCodigo==null||this.capturaSalida==null) {
+        if (this.capturaCodigo == null || this.capturaSalida == null) {
             throw Exception("Parece que aun no se toman las capturas :/")
         }
-        val ccodigo = Paths.get(this.capturaCodigo!!).absolute().toString()
-        ccodigo.replace("\\","\\\\")
-        val csalida = Paths.get(this.capturaSalida!!).absolute().toString()
-        csalida.replace("\\","\\\\")
-        return Pair(ccodigo,csalida)
+        var ccodigo = Paths.get(this.capturaCodigo!!).absolute().toString()
+        ccodigo = ccodigo.replace("\\", "\\\\")
+        var csalida = Paths.get(this.capturaSalida!!).absolute().toString()
+        csalida = csalida.replace("\\", "\\\\")
+        return Pair(ccodigo, csalida)
     }
 }
