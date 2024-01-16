@@ -57,7 +57,7 @@ class Practica(
                 entradas.add(ultimaEntrada)
             }
         }
-        if (entradas.last().entrada!!.isEmpty()) entradas.last().entrada = null
+        if (entradas.isNotEmpty() && entradas.last().entrada!!.isEmpty()) entradas.last().entrada = null
         this.entradas = entradas
     }
 
@@ -132,6 +132,10 @@ class Practica(
         val carpetaCapturas = "${this.rutaAbsoluta}/capturas"
         if (!File(carpetaCapturas).isDirectory) File(carpetaCapturas).mkdir()
         this.caputrarCodigo(c)
+        if (this.entradas!!.isEmpty()) {
+            this.capturaSalida = this.capturaCodigo
+            return
+        }
         c.borrarArgumentos()
         val opcionesAnteriores = c.obtenerListaArgumentos()
         val nuevasOpciones = opcionesAnteriores.toMutableList()

@@ -104,12 +104,48 @@ class PracticaTest {
     }
 
     @Test
+    fun crearEntradasSinSalida() {
+        val ejemplo = Practica(
+            "Prueba",
+            1,
+            "",
+            "src/test/resources/doblevacia.cpp",
+            Paths.get("src/test/resources/2")
+        )
+        val gcc = Compilador("g++", "Gnu Compiler", null)
+        ejemplo.generarCarpetaTrab()
+        ejemplo.compilar(gcc)
+        ejemplo.crearEntradas()
+        val entradas = ejemplo.obtenerEntradas()
+        assertNotEquals(entradas, null)
+        if (entradas != null) assert(entradas.isEmpty())
+        this.limpiar(ejemplo)
+    }
+
+    @Test
     fun ejecutarSinEntradas() {
         val ejemplo = Practica(
             "Prueba2",
             1,
             "",
             "src/test/resources/vacia.cpp",
+            Paths.get("src/test/resources/2")
+        )
+        val gcc = Compilador("g++", "Gnu Compiler", null)
+        ejemplo.generarCarpetaTrab()
+        ejemplo.compilar(gcc)
+        ejemplo.crearEntradas()
+        ejemplo.ejecutar()
+        this.limpiar(ejemplo)
+    }
+
+    @Test
+    fun ejecutarSinSalidas() {
+        val ejemplo = Practica(
+            "Prueba2",
+            1,
+            "",
+            "src/test/resources/doblevacia.cpp",
             Paths.get("src/test/resources/2")
         )
         val gcc = Compilador("g++", "Gnu Compiler", null)
@@ -151,6 +187,28 @@ class PracticaTest {
         assert(File("src/test/resources/2/capturas/salidas").exists())
         assert(File("src/test/resources/2/capturas/codigos/vacia.png").exists())
         assert(File("src/test/resources/2/capturas/salidas/vacia.png").exists())
+        this.limpiar(ejemplo)
+    }@Test
+    fun crearCapturasSinSalida() {
+        val ejemplo = Practica(
+            "Prueba2",
+            1,
+            "",
+            "src/test/resources/doblevacia.cpp",
+            Paths.get("src/test/resources/2")
+        )
+        val gcc = Compilador("g++", "Gnu Compiler", null)
+        ejemplo.generarCarpetaTrab()
+        ejemplo.compilar(gcc)
+        ejemplo.crearEntradas()
+        ejemplo.ejecutar()
+        val silicon = Capturador("silicon", "silicon", null)
+        ejemplo.crearCapturas(silicon)
+        assert(File("src/test/resources/2/capturas").exists())
+        assert(File("src/test/resources/2/capturas/codigos").exists())
+        assert(!File("src/test/resources/2/capturas/salidas").exists())
+        assert(File("src/test/resources/2/capturas/codigos/doblevacia.png").exists())
+        assert(!File("src/test/resources/2/capturas/salidas/doblevacia.png").exists())
         this.limpiar(ejemplo)
     }
 
@@ -200,18 +258,10 @@ class PracticaTest {
     fun existeCodigoFuenteTest() {
         val practicas = listOf(
             Practica(
-                nombre = "Hola mundo",
-                id = 1,
-                observacion = "",
-                codigo = Paths.get("src/test/resources/ejemplosCodigo", "hola_mundo.cpp").toString(),
-                rutaAbsoluta = null
+                "Hola mundo", 1, "", Paths.get("src/test/resources/ejemplosCodigo", "hola_mundo.cpp").toString(), null
             ),
             Practica(
-                nombre = "Matrices",
-                id = 2,
-                observacion = "",
-                codigo = Paths.get("src/test/resources/ejemplosCodigo", "matricez.cpp").toString(),
-                rutaAbsoluta = null
+                "Matrices", 2, "", Paths.get("src/test/resources/ejemplosCodigo", "matricez.cpp").toString(), null
             )
         )
         assert(practicas[0].existeCodigoFuente())
