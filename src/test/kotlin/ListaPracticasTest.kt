@@ -83,6 +83,32 @@ class ListaPracticasTest {
     }
 
     @Test
+    fun practicasACompendiosRepetido2() {
+        val miLista = ListaPracticas("src/test/resources/testRepetido.xlsx")
+        val practicas = miLista.aPracticas(Paths.get("src/test/resources/"))
+        val compendios = miLista.practicasACompendios(practicas,2)
+        val practicasEsperadas = listOf(
+            Practica("Hola mundo",1,"For","hola_mundo.cpp",Paths.get("src/test/resources/")),
+            Practica("Hola mundo",2,"While","matrices.cpp",Paths.get("src/test/resources/")),
+            Practica("Hola mundo",3,"Do while","tabla9.cpp",Paths.get("src/test/resources/")),
+            Practica("Hola mundo",4,"Void","todas_tablas.cpp",Paths.get("src/test/resources/")),
+            Practica("Matrices",5,"For","entrada.cpp",Paths.get("src/test/resources/")),
+            Practica("Matrices",6,"While","iteracion.cpp",Paths.get("src/test/resources/")),
+        )
+        assertEquals(3, compendios.size)
+        for (i in compendios.indices) {
+            assertEquals(i, compendios[i].numeroCompendio)
+            assertEquals(2, compendios[i].listaPracticas.size)
+        }
+        assertEquals(practicasEsperadas[0].nombre, compendios[0].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[1].nombre, compendios[0].listaPracticas[1].nombre)
+        assertEquals(practicasEsperadas[2].nombre, compendios[1].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[3].nombre, compendios[1].listaPracticas[1].nombre)
+        assertEquals(practicasEsperadas[4].nombre, compendios[2].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[5].nombre, compendios[2].listaPracticas[1].nombre)
+    }
+
+    @Test
     fun practicasACompendios3() {
         val miLista = ListaPracticas("src/test/resources/test.xlsx")
         val practicas = miLista.aPracticas(Paths.get("src/test/resources/"))
@@ -94,6 +120,32 @@ class ListaPracticasTest {
             Practica("Tabla del 9",4,"While","no_existo.cpp",Paths.get("src/test/resources/")),
             Practica("Entrada",5,"","no_existo.cpp",Paths.get("src/test/resources/")),
             Practica("Iteración",6,"For","no_existo.cpp",Paths.get("src/test/resources/")),
+        )
+        assertEquals(2, compendios.size)
+        for (i in compendios.indices) {
+            assertEquals(i, compendios[i].numeroCompendio)
+            assertEquals(3, compendios[i].listaPracticas.size)
+        }
+        assertEquals(practicasEsperadas[0].nombre, compendios[0].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[1].nombre, compendios[0].listaPracticas[1].nombre)
+        assertEquals(practicasEsperadas[2].nombre, compendios[0].listaPracticas[2].nombre)
+        assertEquals(practicasEsperadas[3].nombre, compendios[1].listaPracticas[0].nombre)
+        assertEquals(practicasEsperadas[4].nombre, compendios[1].listaPracticas[1].nombre)
+        assertEquals(practicasEsperadas[5].nombre, compendios[1].listaPracticas[2].nombre)
+    }
+
+    @Test
+    fun practicasACompendiosRepetido3() {
+        val miLista = ListaPracticas("src/test/resources/testRepetido.xlsx")
+        val practicas = miLista.aPracticas(Paths.get("src/test/resources/"))
+        val compendios = miLista.practicasACompendios(practicas,3)
+        val practicasEsperadas = listOf(
+            Practica("Hola mundo",1,"For","hola_mundo.cpp",Paths.get("src/test/resources/")),
+            Practica("Hola mundo",2,"While","matrices.cpp",Paths.get("src/test/resources/")),
+            Practica("Hola mundo",3,"Do while","tabla9.cpp",Paths.get("src/test/resources/")),
+            Practica("Hola mundo",4,"Void","todas_tablas.cpp",Paths.get("src/test/resources/")),
+            Practica("Matrices",5,"For","entrada.cpp",Paths.get("src/test/resources/")),
+            Practica("Matrices",6,"While","iteracion.cpp",Paths.get("src/test/resources/")),
         )
         assertEquals(2, compendios.size)
         for (i in compendios.indices) {
