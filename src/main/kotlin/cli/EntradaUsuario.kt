@@ -1,8 +1,8 @@
 package org.isc4151.dan.creadorManual.cli
 
-class EntradaUsuario(msg:String):AbsEntradaUsuario<String>(msg) {
+class EntradaUsuario(msg: String) : AbsEntradaUsuario<String>(msg) {
     override fun mostrar() {
-        var usuarioEntrada:String
+        var usuarioEntrada: String
         do {
             println(this.mensaje)
             print("> ")
