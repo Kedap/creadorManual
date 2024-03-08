@@ -97,7 +97,7 @@ fun nuevoCapturador():Capturador {
     preguntarRutaCapturador.mostrar()
     val rutaCapturador = preguntarRutaCapturador.obtenerEntrada()
 
-    val preguntarOpciones = EntradaUsuarioOmision("Ingresa la opciones que quieres para el compilador","")
+    val preguntarOpciones = EntradaUsuarioOmision("Ingresa la opciones que quieres para el capturador","")
     preguntarOpciones.mostrar()
     val opciones: List<String>? =
         if (preguntarOpciones.obtenerEntrada().isEmpty()) null else preguntarOpciones.obtenerEntrada().split(' ')
@@ -106,7 +106,7 @@ fun nuevoCapturador():Capturador {
 }
 
 fun nuevoCompilador():Compilador {
-    val preguntarRutaCompilador = EntradaUsuario("Ingresa la ruta del binario para el capturador")
+    val preguntarRutaCompilador = EntradaUsuario("Ingresa la ruta del binario para el compilador")
     preguntarRutaCompilador.mostrar()
     val rutaCapturador = preguntarRutaCompilador.obtenerEntrada()
 
