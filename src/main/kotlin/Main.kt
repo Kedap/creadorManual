@@ -23,16 +23,17 @@ fun main() {
     preguntarRutaTrabajo.mostrar()
     val rutaTrabajo = preguntarRutaTrabajo.obtenerEntrada()
 
-    val preguntarCarpetaCodigo = EntradaUsuarioOmision("Ingresa el nombre de la carpeta donde se encuentra el codigo","code")
+    val preguntarCarpetaCodigo =
+        EntradaUsuarioOmision("Ingresa el nombre de la carpeta donde se encuentra el codigo", "code")
     preguntarCarpetaCodigo.mostrar()
     val rutaCodigo = preguntarCarpetaCodigo.obtenerEntrada()
 
-    var compilador = Compilador("g++","Gnu C Compiler",null)
+    var compilador = Compilador("g++", "Gnu C Compiler", null)
     val preguntarModCompilador = EntradaUsuarioCerrada("Desea modificar el compilador (${compilador.comando})")
     preguntarModCompilador.mostrar()
     if (preguntarModCompilador.obtenerEntrada()) compilador = nuevoCompilador()
 
-    var capturador = Capturador("silicon","Silicon",null)
+    var capturador = Capturador("silicon", "Silicon", null)
     val preguntarModCapturador = EntradaUsuarioCerrada("Desea modificar el capturador (${capturador.comando})")
     preguntarModCapturador.mostrar()
     if (preguntarModCapturador.obtenerEntrada()) capturador = nuevoCapturador()
@@ -49,7 +50,7 @@ fun main() {
     val archivoExcel = ListaPracticas(rutaExcel)
     println("Se han encontrado ${archivoExcel.obtenerNumRegistros()} registros")
 
-    val todasPracticas = archivoExcel.aPracticas(Paths.get(rutaTrabajo,rutaCodigo))
+    val todasPracticas = archivoExcel.aPracticas(Paths.get(rutaTrabajo, rutaCodigo))
 
     println("Verificando que existan los archivos dentro de su lista...")
     for (practica in todasPracticas) {
@@ -59,7 +60,7 @@ fun main() {
         }
     }
 
-    val compendios = archivoExcel.practicasACompendios(todasPracticas,practicasPorCompendio)
+    val compendios = archivoExcel.practicasACompendios(todasPracticas, practicasPorCompendio)
     println("Se estan contemplando ${compendios.size} compendios")
 
     for (compendio in compendios) {
@@ -69,7 +70,8 @@ fun main() {
             practica.crearEntradas()
             practica.ejecutar()
             if (modificarSalidas) {
-                val editor = if (obtenerOS() == SistemaOperativo.WINDOWS) EditoresTexto.NOTEPAD else EditoresTexto.LEAFPAD
+                val editor =
+                    if (obtenerOS() == SistemaOperativo.WINDOWS) EditoresTexto.NOTEPAD else EditoresTexto.LEAFPAD
                 practica.modSalida(editor.editor)
             }
             practica.crearCapturas(capturador)
@@ -85,35 +87,35 @@ fun main() {
         for (compendio in compendios) compendio.crearNuevaEntradaGPT(Paths.get(rutaFormato))
     }
 
-    val rutaCSV = Paths.get(rutaTrabajo,"practicas.csv")
+    val rutaCSV = Paths.get(rutaTrabajo, "practicas.csv")
     println("Escribiendo CSV en $rutaCSV")
     val archivoCSV = FileWriter(rutaCSV.toString())
     archivoCSV.escribirCSV(compendios)
     archivoCSV.close()
 }
 
-fun nuevoCapturador():Capturador {
+fun nuevoCapturador(): Capturador {
     val preguntarRutaCapturador = EntradaUsuario("Ingresa la ruta del binario para el capturador")
     preguntarRutaCapturador.mostrar()
     val rutaCapturador = preguntarRutaCapturador.obtenerEntrada()
 
-    val preguntarOpciones = EntradaUsuarioOmision("Ingresa la opciones que quieres para el capturador","")
+    val preguntarOpciones = EntradaUsuarioOmision("Ingresa la opciones que quieres para el capturador", "")
     preguntarOpciones.mostrar()
     val opciones: List<String>? =
         if (preguntarOpciones.obtenerEntrada().isEmpty()) null else preguntarOpciones.obtenerEntrada().split(' ')
 
-    return Capturador(rutaCapturador,"Custom",opciones)
+    return Capturador(rutaCapturador, "Custom", opciones)
 }
 
-fun nuevoCompilador():Compilador {
+fun nuevoCompilador(): Compilador {
     val preguntarRutaCompilador = EntradaUsuario("Ingresa la ruta del binario para el compilador")
     preguntarRutaCompilador.mostrar()
     val rutaCapturador = preguntarRutaCompilador.obtenerEntrada()
 
-    val preguntarOpciones = EntradaUsuarioOmision("Ingresa la opciones que quieres para el compilador","")
+    val preguntarOpciones = EntradaUsuarioOmision("Ingresa la opciones que quieres para el compilador", "")
     preguntarOpciones.mostrar()
     val opciones: List<String>? =
         if (preguntarOpciones.obtenerEntrada().isEmpty()) null else preguntarOpciones.obtenerEntrada().split(' ')
 
-    return Compilador(rutaCapturador,"Custom",opciones)
+    return Compilador(rutaCapturador, "Custom", opciones)
 }

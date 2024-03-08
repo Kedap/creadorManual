@@ -6,9 +6,9 @@ enum class SistemaOperativo {
 
 fun obtenerOS(): SistemaOperativo? {
     val os = System.getProperty("os.name").lowercase()
-    return when{
+    return when {
         os.contains("win") -> SistemaOperativo.WINDOWS
-        os.contains("nix") || os.contains("nux") || os.contains("aix")->SistemaOperativo.LINUX
+        os.contains("nix") || os.contains("nux") || os.contains("aix") -> SistemaOperativo.LINUX
         else -> null
     }
 }
