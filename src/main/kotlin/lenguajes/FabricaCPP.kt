@@ -1,6 +1,9 @@
 package org.isc4151.dan.creadorManual.lenguajes
 
-class FabricaCPP(rutaCompilador: String, opciones: List<String>) : FabricaLenguaje(rutaCompilador, opciones) {
+class FabricaCPP : FabricaLenguaje() {
+    override var rutaCompilador: String = "g++";
+    override var opciones: List<String> = listOf();
+
     override fun configurarLenguaje() {
         TODO("Not yet implemented")
     }

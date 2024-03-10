@@ -1,6 +1,9 @@
 package org.isc4151.dan.creadorManual.lenguajes
 
-class FabricaJava(rutaCompilador: String, opciones: List<String>) : FabricaLenguaje(rutaCompilador, opciones) {
+class FabricaJava : FabricaLenguaje() {
+    override var rutaCompilador: String = "javac";
+    override var opciones: List<String> = listOf();
+
     override fun configurarLenguaje() {
         TODO("Not yet implemented")
     }

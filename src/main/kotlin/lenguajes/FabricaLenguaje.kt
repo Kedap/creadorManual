@@ -1,6 +1,8 @@
 package org.isc4151.dan.creadorManual.lenguajes
 
-abstract class FabricaLenguaje(var rutaCompilador: String, var opciones: List<String>) {
+abstract class FabricaLenguaje() {
+    abstract var rutaCompilador: String;
+    abstract var opciones: List<String>;
     fun configurarObtenerLenguaje(): Lenguaje {
         configurarLenguaje();
         return obtenerLenguaje();
