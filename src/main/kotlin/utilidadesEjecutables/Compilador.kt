@@ -1,5 +1,6 @@
 package org.isc4151.dan.creadorManual.utilidadesEjecutables
 
+// TODO: Borrame después de haber implementado correctamente lo de los lenguajes
 class Compilador(override val comando: String, override val nombre: String, override val opciones: List<String>?) :
     UtilidadEjecutable() {
 

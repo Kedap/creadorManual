@@ -19,6 +19,7 @@ class PracticaTest {
         File(p.rutaAbsoluta!!.toString()).deleteRecursively()
     }
 
+    //TODO: Borra los test de compilar a favor de src/test/kotlin/lenguajes/LenguajeCPPTest.kt
     @Test
     fun compilar() {
         val ejemplo = Practica(
@@ -188,7 +189,9 @@ class PracticaTest {
         assert(File("src/test/resources/2/capturas/codigos/vacia.png").exists())
         assert(File("src/test/resources/2/capturas/salidas/vacia.png").exists())
         this.limpiar(ejemplo)
-    }@Test
+    }
+
+    @Test
     fun crearCapturasSinSalida() {
         val ejemplo = Practica(
             "Prueba2",

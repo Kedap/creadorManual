@@ -107,6 +107,7 @@ fun nuevoCapturador(): Capturador {
     return Capturador(rutaCapturador, "Custom", opciones)
 }
 
+// TODO: borrame después de haber implementado correctamente los lenguajes
 fun nuevoCompilador(): Compilador {
     val preguntarRutaCompilador = EntradaUsuario("Ingresa la ruta del binario para el compilador")
     preguntarRutaCompilador.mostrar()
