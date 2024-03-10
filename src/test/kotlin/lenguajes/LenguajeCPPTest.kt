@@ -4,7 +4,6 @@ import org.isc4151.dan.creadorManual.lenguajes.LenguajeCPP
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.assertThrows
 import java.io.File
 
 class LenguajeCPPTest {
