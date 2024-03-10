@@ -10,7 +10,7 @@ class LenguajeJava(
         TODO("Not yet implemented")
     }
 
-    override fun obtenerEjecucion(salida: String) {
+    override fun obtenerEjecucion(salida: String): String {
         TODO("Not yet implemented")
     }
 }
