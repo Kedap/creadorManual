@@ -6,7 +6,7 @@ class LenguajeJava(
     private val rutaJavaEjecutador: String,
     private val opcionesEjecucion: List<String>
 ) : Lenguaje(rutaCompilador, opciones) {
-    override fun compilar(codigo: String, salida: String) {
+    override fun compilar(codigo: String, salida: String): String {
         TODO("Not yet implemented")
     }
 
