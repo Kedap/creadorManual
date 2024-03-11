@@ -12,7 +12,7 @@ class LenguajeJava(
 ) : Lenguaje(rutaCompilador, opciones) {
     override fun compilar(codigo: String, directorioSalida: String): String {
         var comando = rutaCompilador
-        opciones.forEach { comando += "$ $it" }
+        opciones.forEach { comando += " $it" }
         comando += " $codigo -d $directorioSalida"
         println("$ $comando")
         val procesoHijo = Runtime.getRuntime().exec(comando)
@@ -26,7 +26,7 @@ class LenguajeJava(
     override fun obtenerEjecucion(salida: String): String {
         var comando = rutaJavaEjecutador
         opcionesEjecucion.forEach { comando += " $it" }
-        comando += salida
+        comando += " $salida"
         return comando
     }
 }
