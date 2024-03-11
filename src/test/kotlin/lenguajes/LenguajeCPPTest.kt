@@ -16,8 +16,8 @@ class LenguajeCPPTest {
     fun compilar() {
         val lenguaje = LenguajeCPP("g++", listOf())
         val codigo = "src/test/resources/prueba.cpp"
-        val salida = "src/test/resources/prueba"
-        lenguaje.compilar(codigo, salida)
+        var salida = "src/test/resources/"
+        salida = lenguaje.compilar(codigo, salida)
         assert(File(salida).exists())
         this.limipiar(salida)
     }
@@ -26,8 +26,8 @@ class LenguajeCPPTest {
     fun compilarBanderas() {
         val lenguaje = LenguajeCPP("g++", listOf("-Wall"))
         val codigo = "src/test/resources/prueba.cpp"
-        val salida = "src/test/resources/prueba"
-        lenguaje.compilar(codigo, salida)
+        var salida = "src/test/resources/"
+        salida = lenguaje.compilar(codigo, salida)
         assert(File(salida).exists())
         this.limipiar(salida)
     }
@@ -36,8 +36,8 @@ class LenguajeCPPTest {
     fun compilarClang() {
         val lenguaje = LenguajeCPP("clang++", listOf())
         val codigo = "src/test/resources/prueba.cpp"
-        val salida = "src/test/resources/prueba"
-        lenguaje.compilar(codigo, salida)
+        var salida = "src/test/resources"
+        salida = lenguaje.compilar(codigo, salida)
         assert(File(salida).exists())
         this.limipiar(salida)
     }
@@ -45,7 +45,6 @@ class LenguajeCPPTest {
     @Test
     fun obtenerEjecucion() {
         val lenguaje = LenguajeCPP("clang++", listOf())
-        val codigo = "src/test/resources/prueba.cpp"
         val salida = "src/test/resources/prueba"
         assertEquals(salida, lenguaje.obtenerEjecucion(salida))
     }
