@@ -17,7 +17,7 @@ class LenguajeCPP(rutaCompilador: String, opciones: List<String>) :
         println("$ $comando")
         val procesoHijo = Runtime.getRuntime().exec(comando)
         procesoHijo.waitFor(20, TimeUnit.SECONDS)
-        if (procesoHijo.exitValue() != 0) throw Exception("Ocurrio un error al compilar")
+        if (procesoHijo.exitValue() != 0) throw Exception("Ocurrió un error al compilar")
         return archivoSalida
     }
 
