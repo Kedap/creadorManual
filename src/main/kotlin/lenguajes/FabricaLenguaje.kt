@@ -5,5 +5,5 @@ abstract class FabricaLenguaje {
     abstract var opciones: List<String>
 
     abstract fun configurarLenguaje()
-    abstract fun obtenerLenguaje(): Lenguaje;
+    abstract fun obtenerLenguaje(): Lenguaje
 }
