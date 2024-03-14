@@ -1,4 +1,3 @@
-// TODO: hacer que este código pida entrada de usuario
 public class factorial {
     public static void main(String[] args) {
         int numero = 5;
