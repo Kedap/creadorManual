@@ -35,6 +35,6 @@ class LenguajeJavaTest {
     fun obtenerEjecucion() {
         val lenguaje = LenguajeJava("javac", listOf("-source", "8"), "java", listOf())
         val salida = "src/test/resources/ejemplosJava/holamundo.class"
-        assertEquals("java $salida", lenguaje.obtenerEjecucion(salida))
+        assertEquals(listOf("java","-cp","src/test/resources/ejemplosJava","holamundo"), lenguaje.obtenerEjecucion(salida))
     }
 }

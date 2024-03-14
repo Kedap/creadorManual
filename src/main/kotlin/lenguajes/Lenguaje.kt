@@ -1,6 +1,12 @@
 package org.isc4151.dan.creadorManual.lenguajes
 
-abstract class Lenguaje(protected val rutaCompilador: String, protected val opciones: List<String>) {
+abstract class Lenguaje(
+    protected val rutaCompilador: String,
+    protected val opciones: List<String>,
+    private val codigoSalida: Regex,
+    private val codigoEntrada: Regex
+) {
+
     /**
      * Se le pasa como argumento la ruta del código a compilar y se le pasa la salida el directorio en donde
      * se va a colocar el resultado final según el lenguaje, el resultado final se llamara igual que el archivo,
@@ -11,5 +17,12 @@ abstract class Lenguaje(protected val rutaCompilador: String, protected val opci
      * @return se devuelve la ruta del resultado de la compilación
      */
     abstract fun compilar(codigo: String, directorioSalida: String): String
-    abstract fun obtenerEjecucion(salida: String): String
+    abstract fun obtenerEjecucion(salida: String): List<String>
+    fun getCodigoSalida(): Regex {
+        return codigoSalida
+    }
+
+    fun getCodigoEntrada(): Regex {
+        return codigoEntrada
+    }
 }

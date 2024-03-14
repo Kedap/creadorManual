@@ -46,6 +46,6 @@ class LenguajeCPPTest {
     fun obtenerEjecucion() {
         val lenguaje = LenguajeCPP("clang++", listOf())
         val salida = "src/test/resources/prueba"
-        assertEquals(salida, lenguaje.obtenerEjecucion(salida))
+        assertEquals(listOf(salida), lenguaje.obtenerEjecucion(salida))
     }
 }
