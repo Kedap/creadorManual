@@ -1,8 +1,8 @@
 package org.isc4151.dan.creadorManual
 
 import org.apache.commons.io.FilenameUtils
+import org.isc4151.dan.creadorManual.lenguajes.Lenguaje
 import org.isc4151.dan.creadorManual.utilidadesEjecutables.Capturador
-import org.isc4151.dan.creadorManual.utilidadesEjecutables.Compilador
 import org.isc4151.dan.creadorManual.utilidadesEjecutables.EditorTexto
 import java.io.File
 import java.nio.file.Files
@@ -16,7 +16,8 @@ class Practica(
     val id: Int,
     val observacion: String,
     val codigo: String,
-    var rutaAbsoluta: Path? = null
+    var rutaAbsoluta: Path? = null,
+    private val lenguaje: Lenguaje
 ) {
     private var rutaBinario: String? = null
     private var rutaCodigo: Path? = null
@@ -25,32 +26,24 @@ class Practica(
     private var capturaCodigo: String? = null
     private var capturaSalida: String? = null
 
-    fun compilar(c: Compilador) {
-        if (this.rutaCodigo == null || !File(this.rutaAbsoluta.toString()).isDirectory) throw Exception("No se ha movido el codigo o no se han creado la carpeta de trabajo")
+    fun compilar() {
+        if (this.rutaCodigo == null || !File(this.rutaAbsoluta.toString()).isDirectory) {
+            throw Exception("No se ha movido el codigo o no se han creado la carpeta de trabajo")
+        }
         val carpetaBinario = "${this.rutaAbsoluta}/binarios"
         if (!File(carpetaBinario).isDirectory) File(carpetaBinario).mkdirs()
-        var rutaBinario = "$carpetaBinario/${FilenameUtils.getBaseName(this.rutaCodigo.toString())}"
-        if (obtenerOS() == SistemaOperativo.WINDOWS) rutaBinario = "$rutaBinario.exe"
-        val argumentos = "$rutaCodigo -o $rutaBinario"
-        c.agregarArgumentos(argumentos)
-        val comando = c.obtenerComando()
-        println("Compilando $rutaCodigo...")
-        println("$ $comando")
 
-        val procesoHijo = Runtime.getRuntime().exec(comando)
-        procesoHijo.waitFor(20, TimeUnit.SECONDS)
-        if (procesoHijo.exitValue() != 0) throw Exception("Ocurrio un error al compilar $nombre")
-        this.rutaBinario = rutaBinario
+        rutaBinario = lenguaje.compilar(rutaCodigo.toString(), carpetaBinario)
     }
 
     fun crearEntradas() {
         if (this.rutaCodigo == null) throw Exception("La ruta absoluta del codigo no exsite, no se ha compilado...")
         val entradas = mutableListOf<EntradaEjecutable>()
         File(this.rutaCodigo.toString()).forEachLine {
-            if (it.contains("cout")) {
+            if (it.contains(lenguaje.getCodigoSalida())) {
                 val nuevaEntrada = EntradaEjecutable(it, "")
                 entradas.add(nuevaEntrada)
-            } else if (it.contains("cin")) {
+            } else if (it.contains(lenguaje.getCodigoEntrada())) {
                 val ultimaEntrada = entradas.last()
                 ultimaEntrada.entrada = it
                 entradas.removeLast()
@@ -73,15 +66,16 @@ class Practica(
             if (entrada.entrada != null) msgEntrada = entrada.entrada!!
             println("${entrada.mensaje}\n\n${msgEntrada}")
         }
-        val procesoHijo = ProcessBuilder(this.rutaBinario)
+        val comando = lenguaje.obtenerEjecucion(rutaBinario!!)
+        val procesoHijo = ProcessBuilder(comando)
             .redirectOutput(ProcessBuilder.Redirect.PIPE)
-            .redirectError(ProcessBuilder.Redirect.PIPE)
+            .redirectError(ProcessBuilder.Redirect.INHERIT)
             .redirectInput(ProcessBuilder.Redirect.INHERIT)
             .start()
         procesoHijo.waitFor(15, TimeUnit.MINUTES)
         val salida = procesoHijo.inputStream.bufferedReader().readText()
         File(archivoSalida).writeText(salida)
-        if (procesoHijo.exitValue() != 0) throw Exception("Ocurrio algún error al ejecutar ${this.rutaBinario}")
+        if (procesoHijo.exitValue() != 0) throw Exception("Ocurrio algún error al ejecutar ${this.rutaBinario}\n$comando")
         println("-------------------------------------------------")
         this.rutaSalida = archivoSalida
     }

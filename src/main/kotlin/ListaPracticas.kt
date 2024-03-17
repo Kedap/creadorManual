@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Cell
 import org.apache.poi.ss.usermodel.CellType
 import org.apache.poi.ss.usermodel.Sheet
 import org.apache.poi.ss.usermodel.WorkbookFactory
+import org.isc4151.dan.creadorManual.lenguajes.Lenguaje
 import java.io.FileInputStream
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -23,7 +24,7 @@ class ListaPracticas(private val ruta: String) {
         return this.registros
     }
 
-    fun aPracticas(rutaTrabajo: Path): List<Practica> {
+    fun aPracticas(rutaTrabajo: Path, lenguaje: Lenguaje): List<Practica> {
         val practicas = mutableListOf<Practica>()
         for (fila in this.hoja!!) {
             if (obtenerValorCelda(fila.getCell(0)) == "ID") continue
@@ -35,6 +36,7 @@ class ListaPracticas(private val ruta: String) {
                 observaciones,
                 Paths.get(rutaTrabajo.toString(), obtenerValorCelda(fila.getCell(3))).toString(),
                 Paths.get(rutaTrabajo.toString(), obtenerValorCelda(fila.getCell(0)).toInt().toString()),
+                lenguaje
             )
             practicas.add(practica)
         }

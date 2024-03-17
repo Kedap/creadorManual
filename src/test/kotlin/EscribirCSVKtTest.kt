@@ -1,7 +1,7 @@
 import org.apache.commons.csv.CSVFormat
 import org.isc4151.dan.creadorManual.*
+import org.isc4151.dan.creadorManual.lenguajes.LenguajeCPP
 import org.isc4151.dan.creadorManual.utilidadesEjecutables.Capturador
-import org.isc4151.dan.creadorManual.utilidadesEjecutables.Compilador
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 
@@ -25,6 +25,7 @@ class EscribirCSVKtTest {
         Files.move(codigoActual, codigoEsperado)
         File(p.rutaAbsoluta!!.toString()).deleteRecursively()
     }
+
     @Test
     fun escribirCSV() {
         val practicas = listOf(
@@ -33,14 +34,14 @@ class EscribirCSVKtTest {
                 2,
                 "Practica super chida",
                 "src/test/resources/vacia.cpp",
-                Paths.get("src/test/resources/2")
+                Paths.get("src/test/resources/2"),
+                LenguajeCPP("g++", listOf())
             )
         )
-        val primerCompendio = CompendioPracticas(2,practicas,1, Paths.get("src/test/resources/"))
+        val primerCompendio = CompendioPracticas(2, practicas, 1, Paths.get("src/test/resources/"))
         val archivoCSV = FileWriter("src/test/resources/todos.csv")
-        val gcc = Compilador("g++", "Gnu Compiler", null)
         practicas[0].generarCarpetaTrab()
-        practicas[0].compilar(gcc)
+        practicas[0].compilar()
         practicas[0].crearEntradas()
         practicas[0].ejecutar()
         val silicon = Capturador("silicon", "silicon", null)
@@ -49,7 +50,7 @@ class EscribirCSVKtTest {
         archivoCSV.close()
         assert(File("src/test/resources/todos.csv").exists())
         val titulos = this.leerCSV(File("src/test/resources/todos.csv").inputStream())
-        assertEquals("Prueba1 (Practica super chida)",titulos[0])
+        assertEquals("Prueba1 (Practica super chida)", titulos[0])
         this.limpiar(practicas[0])
     }
 
@@ -60,16 +61,16 @@ class EscribirCSVKtTest {
             2,
             "",
             "src/test/resources/vacia.cpp",
-            Paths.get("src/test/resources/2")
+            Paths.get("src/test/resources/2"),
+            LenguajeCPP("g++", listOf())
         )
-        val gcc = Compilador("g++", "Gnu Compiler", null)
         ejemplo.generarCarpetaTrab()
-        ejemplo.compilar(gcc)
+        ejemplo.compilar()
         ejemplo.crearEntradas()
         ejemplo.ejecutar()
         val silicon = Capturador("silicon", "silicon", null)
         ejemplo.crearCapturas(silicon)
-        val primerCompendio = CompendioPracticas(2, listOf(ejemplo),1,Paths.get("src/test/resources"))
+        val primerCompendio = CompendioPracticas(2, listOf(ejemplo), 1, Paths.get("src/test/resources"))
         val archivoCSV = FileWriter("src/test/resources/todos.csv")
         archivoCSV.escribirCSV(listOf(primerCompendio))
         archivoCSV.close()

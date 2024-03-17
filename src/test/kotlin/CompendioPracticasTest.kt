@@ -1,5 +1,6 @@
 import org.isc4151.dan.creadorManual.CompendioPracticas
 import org.isc4151.dan.creadorManual.Practica
+import org.isc4151.dan.creadorManual.lenguajes.LenguajeCPP
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
@@ -11,8 +12,8 @@ class CompendioPracticasTest {
     @Test
     fun obtenerTitulo() {
         val practicas = listOf(
-            Practica("Numeros pares", 1, "", "", null),
-            Practica("Numeros impares", 2, "", "", null)
+            Practica("Numeros pares", 1, "", "", null, LenguajeCPP("", listOf())),
+            Practica("Numeros impares", 2, "", "", null, LenguajeCPP("", listOf()))
         )
         val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Numeros pares y numeros impares")
@@ -21,8 +22,8 @@ class CompendioPracticasTest {
     @Test
     fun obtenerTituloCompuesto() {
         val practicas = listOf(
-            Practica("Numeros pares", 1, "Switch", "", null),
-            Practica("Numeros impares", 2, "If-else", "", null)
+            Practica("Numeros pares", 1, "Switch", "", null, LenguajeCPP("", listOf())),
+            Practica("Numeros impares", 2, "If-else", "", null, LenguajeCPP("", listOf()))
         )
         val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Numeros pares (Switch) y numeros impares (If-else)")
@@ -31,8 +32,8 @@ class CompendioPracticasTest {
     @Test
     fun obtenerTituloConAnexos() {
         val practicas = listOf(
-            Practica("Numeros pares", 1, "", "", null),
-            Practica("Igualdad entre numeros", 2, "", "", null)
+            Practica("Numeros pares", 1, "", "", null, LenguajeCPP("", listOf())),
+            Practica("Igualdad entre numeros", 2, "", "", null, LenguajeCPP("", listOf()))
         )
         val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Numeros pares e igualdad entre numeros")
@@ -41,8 +42,8 @@ class CompendioPracticasTest {
     @Test
     fun obtenerTituloConAnexosAlFinal() {
         val practicas = listOf(
-            Practica("Comparaciones entre si", 1, "", "", null),
-            Practica("Matrices", 2, "", "", null)
+            Practica("Comparaciones entre si", 1, "", "", null, LenguajeCPP("", listOf())),
+            Practica("Matrices", 2, "", "", null, LenguajeCPP("", listOf()))
         )
         val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Comparaciones entre si y matrices")
@@ -51,9 +52,9 @@ class CompendioPracticasTest {
     @Test
     fun obtenerTituloConTres() {
         val practicas = listOf(
-            Practica("Comparaciones entre si", 1, "", "", null),
-            Practica("Matrices", 2, "Arreglos", "", null),
-            Practica("Condicionales", 3, "", "", null)
+            Practica("Comparaciones entre si", 1, "", "", null, LenguajeCPP("", listOf())),
+            Practica("Matrices", 2, "Arreglos", "", null, LenguajeCPP("", listOf())),
+            Practica("Condicionales", 3, "", "", null, LenguajeCPP("", listOf()))
         )
         val nuevoCompendio = CompendioPracticas(1, practicas, 3, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerTitulo(), "Comparaciones entre si, matrices (Arreglos) y condicionales")
@@ -62,8 +63,8 @@ class CompendioPracticasTest {
     @Test
     fun obtenerRutaAbsoluta() {
         val practicas = listOf(
-            Practica("Comparaciones entre si", 1, "", "", null),
-            Practica("Matrices", 2, "", "", null)
+            Practica("Comparaciones entre si", 1, "", "", null, LenguajeCPP("", listOf())),
+            Practica("Matrices", 2, "", "", null, LenguajeCPP("", listOf()))
         )
         val nuevoCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         assertEquals(nuevoCompendio.obtenerRutaAbsoluta(), "src/test/resources/1")
@@ -74,8 +75,8 @@ class CompendioPracticasTest {
     @Test
     fun cambiarRutaPracticas() {
         val practicas = listOf(
-            Practica("Prueba1", 0, "", "prueba.cpp", Paths.get("src/test/resources/")),
-            Practica("Prueba2", 1, "", "vacia.cpp", Paths.get("src/test/resources/"))
+            Practica("Prueba1", 0, "", "prueba.cpp", Paths.get("src/test/resources/"), LenguajeCPP("", listOf())),
+            Practica("Prueba2", 1, "", "vacia.cpp", Paths.get("src/test/resources/"), LenguajeCPP("", listOf()))
         )
         val miCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         for (practica in miCompendio.listaPracticas) {
@@ -86,8 +87,8 @@ class CompendioPracticasTest {
     @Test
     fun utilizarFormatoGPT() {
         val practicas = listOf(
-            Practica("Prueba1", 0, "", "prueba.cpp", Paths.get("src/test/resources/")),
-            Practica("Prueba2", 1, "", "vacia.cpp", Paths.get("src/test/resources/"))
+            Practica("Prueba1", 0, "", "prueba.cpp", Paths.get("src/test/resources/"), LenguajeCPP("", listOf())),
+            Practica("Prueba2", 1, "", "vacia.cpp", Paths.get("src/test/resources/"), LenguajeCPP("", listOf()))
         )
         val miCompendio = CompendioPracticas(1, practicas, 2, Paths.get("src/test/resources/"))
         miCompendio.crearNuevaEntradaGPT(Paths.get("src/test/resources/formato_gpt.txt"))

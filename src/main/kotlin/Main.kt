@@ -3,8 +3,9 @@ package org.isc4151.dan.creadorManual
 import org.isc4151.dan.creadorManual.cli.EntradaUsuario
 import org.isc4151.dan.creadorManual.cli.EntradaUsuarioCerrada
 import org.isc4151.dan.creadorManual.cli.EntradaUsuarioOmision
+import org.isc4151.dan.creadorManual.lenguajes.FabricaCPP
+import org.isc4151.dan.creadorManual.lenguajes.FabricaJava
 import org.isc4151.dan.creadorManual.utilidadesEjecutables.Capturador
-import org.isc4151.dan.creadorManual.utilidadesEjecutables.Compilador
 import org.isc4151.dan.creadorManual.utilidadesEjecutables.EditoresTexto
 import java.io.FileWriter
 import java.nio.file.Paths
@@ -28,10 +29,13 @@ fun main() {
     preguntarCarpetaCodigo.mostrar()
     val rutaCodigo = preguntarCarpetaCodigo.obtenerEntrada()
 
-    var compilador = Compilador("g++", "Gnu C Compiler", null)
-    val preguntarModCompilador = EntradaUsuarioCerrada("Desea modificar el compilador (${compilador.comando})")
+    val preguntarLenguaje = EntradaUsuarioCerrada("Desea cambiar a otro lenguaje que no sea C++?")
+    preguntarLenguaje.mostrar()
+    val fabricaLenguaje = if (preguntarLenguaje.obtenerEntrada()) FabricaJava() else FabricaCPP()
+
+    val preguntarModCompilador = EntradaUsuarioCerrada("Desea modificar el compliador (${fabricaLenguaje.rutaCompilador})?")
     preguntarModCompilador.mostrar()
-    if (preguntarModCompilador.obtenerEntrada()) compilador = nuevoCompilador()
+    if (preguntarModCompilador.obtenerEntrada()) fabricaLenguaje.configurarLenguaje()
 
     var capturador = Capturador("silicon", "Silicon", null)
     val preguntarModCapturador = EntradaUsuarioCerrada("Desea modificar el capturador (${capturador.comando})")
@@ -50,7 +54,7 @@ fun main() {
     val archivoExcel = ListaPracticas(rutaExcel)
     println("Se han encontrado ${archivoExcel.obtenerNumRegistros()} registros")
 
-    val todasPracticas = archivoExcel.aPracticas(Paths.get(rutaTrabajo, rutaCodigo))
+    val todasPracticas = archivoExcel.aPracticas(Paths.get(rutaTrabajo, rutaCodigo), fabricaLenguaje.obtenerLenguaje())
 
     println("Verificando que existan los archivos dentro de su lista...")
     for (practica in todasPracticas) {
@@ -66,7 +70,7 @@ fun main() {
     for (compendio in compendios) {
         for (practica in compendio.listaPracticas) {
             practica.generarCarpetaTrab()
-            practica.compilar(compilador)
+            practica.compilar()
             practica.crearEntradas()
             practica.ejecutar()
             if (modificarSalidas) {
@@ -75,7 +79,6 @@ fun main() {
                 practica.modSalida(editor.editor)
             }
             practica.crearCapturas(capturador)
-            compilador.borrarArgumentos()
             capturador.borrarArgumentos()
         }
     }
@@ -105,17 +108,4 @@ fun nuevoCapturador(): Capturador {
         if (preguntarOpciones.obtenerEntrada().isEmpty()) null else preguntarOpciones.obtenerEntrada().split(' ')
 
     return Capturador(rutaCapturador, "Custom", opciones)
-}
-
-fun nuevoCompilador(): Compilador {
-    val preguntarRutaCompilador = EntradaUsuario("Ingresa la ruta del binario para el compilador")
-    preguntarRutaCompilador.mostrar()
-    val rutaCapturador = preguntarRutaCompilador.obtenerEntrada()
-
-    val preguntarOpciones = EntradaUsuarioOmision("Ingresa la opciones que quieres para el compilador", "")
-    preguntarOpciones.mostrar()
-    val opciones: List<String>? =
-        if (preguntarOpciones.obtenerEntrada().isEmpty()) null else preguntarOpciones.obtenerEntrada().split(' ')
-
-    return Compilador(rutaCapturador, "Custom", opciones)
 }
