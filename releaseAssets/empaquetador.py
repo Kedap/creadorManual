@@ -2,10 +2,27 @@
 import os
 from pathlib import Path
 import shutil
+from enum import Enum
 
 
-VERSION_ACTUAL = "1.2.0-snapshot"
+class Versiones(Enum):
+    SNAPSHOT = "snapshot"
+    BETA = "beta"
+    RELEASE = ""
 
+
+NUMERO_VERSION = "1.2.0"
+TIPO_VERSION = Versiones.SNAPSHOT
+
+
+def obtener_version(version, tipo_version: Versiones):
+    if tipo_version == Versiones.RELEASE:
+        return version
+    else:
+        return f"{version}-{tipo_version.value}"
+
+
+VERSION_ACTUAL = obtener_version(NUMERO_VERSION, TIPO_VERSION)
 RUTA_RELASSETS = Path(os.path.realpath(__file__)).parent
 RUTA_REPO = Path(os.path.realpath(__file__)).parent.parent
 RUTA_TARGET = Path(RUTA_REPO, "target")
