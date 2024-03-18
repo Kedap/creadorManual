@@ -35,7 +35,7 @@ class EscribirCSVKtTest {
                 "Practica super chida",
                 "src/test/resources/vacia.cpp",
                 Paths.get("src/test/resources/2"),
-                LenguajeCPP("g++", listOf())
+                LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
             )
         )
         val primerCompendio = CompendioPracticas(2, practicas, 1, Paths.get("src/test/resources/"))
@@ -44,7 +44,7 @@ class EscribirCSVKtTest {
         practicas[0].compilar()
         practicas[0].crearEntradas()
         practicas[0].ejecutar()
-        val silicon = Capturador("silicon", "silicon", null)
+        val silicon = Capturador(ConfiguracionTest.CAPTURADOR.cmd, "silicon", null)
         practicas[0].crearCapturas(silicon)
         archivoCSV.escribirCSV(listOf(primerCompendio))
         archivoCSV.close()
@@ -62,13 +62,13 @@ class EscribirCSVKtTest {
             "",
             "src/test/resources/vacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
         ejemplo.crearEntradas()
         ejemplo.ejecutar()
-        val silicon = Capturador("silicon", "silicon", null)
+        val silicon = Capturador(ConfiguracionTest.CAPTURADOR.cmd, "silicon", null)
         ejemplo.crearCapturas(silicon)
         val primerCompendio = CompendioPracticas(2, listOf(ejemplo), 1, Paths.get("src/test/resources"))
         val archivoCSV = FileWriter("src/test/resources/todos.csv")

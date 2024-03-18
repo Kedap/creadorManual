@@ -14,7 +14,7 @@ class LenguajeCPPTest {
 
     @Test
     fun compilar() {
-        val lenguaje = LenguajeCPP("g++", listOf())
+        val lenguaje = LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         val codigo = "src/test/resources/prueba.cpp"
         var salida = "src/test/resources/"
         salida = lenguaje.compilar(codigo, salida)
@@ -24,7 +24,7 @@ class LenguajeCPPTest {
 
     @Test
     fun compilarBanderas() {
-        val lenguaje = LenguajeCPP("g++", listOf("-Wall"))
+        val lenguaje = LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf("-Wall"))
         val codigo = "src/test/resources/prueba.cpp"
         var salida = "src/test/resources/"
         salida = lenguaje.compilar(codigo, salida)
@@ -34,7 +34,7 @@ class LenguajeCPPTest {
 
     @Test
     fun compilarClang() {
-        val lenguaje = LenguajeCPP("clang++", listOf())
+        val lenguaje = LenguajeCPP(ConfiguracionTest.COMPILADORCPP_SECUNDARIO.cmd, listOf())
         val codigo = "src/test/resources/prueba.cpp"
         var salida = "src/test/resources"
         salida = lenguaje.compilar(codigo, salida)
@@ -44,7 +44,7 @@ class LenguajeCPPTest {
 
     @Test
     fun obtenerEjecucion() {
-        val lenguaje = LenguajeCPP("clang++", listOf())
+        val lenguaje = LenguajeCPP(ConfiguracionTest.COMPILADORCPP_SECUNDARIO.cmd, listOf())
         val salida = "src/test/resources/prueba"
         assertEquals(listOf(salida), lenguaje.obtenerEjecucion(salida))
     }

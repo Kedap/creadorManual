@@ -35,7 +35,7 @@ class PracticaTest {
             "",
             "src/test/resources/prueba.cpp",
             Paths.get("src/test/resources/1"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -69,7 +69,7 @@ class PracticaTest {
             "",
             "src/test/resources/prueba.cpp",
             Paths.get("src/test/resources/1"),
-            LenguajeCPP("g++", listOf("-Wall"))
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf("-Wall"))
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -99,7 +99,7 @@ class PracticaTest {
 
     @Test
     fun modificarRutaCompila() {
-        val ejemplo = Practica("Prueba1", 0, "", "src/test/resources/prueba.cpp", null, LenguajeCPP("g++", listOf()))
+        val ejemplo = Practica("Prueba1", 0, "", "src/test/resources/prueba.cpp", null, LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf()))
         ejemplo.cambiarRutaAbsoluta(Paths.get("src/test/resources/1"))
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -116,7 +116,7 @@ class PracticaTest {
             "",
             "src/test/resources/prueba.cpp",
             Paths.get("src/test/resources/1"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -135,7 +135,7 @@ class PracticaTest {
             "",
             "src/test/resources/vacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -173,7 +173,7 @@ class PracticaTest {
             "",
             "src/test/resources/doblevacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -192,7 +192,7 @@ class PracticaTest {
             "",
             "src/test/resources/vacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -209,7 +209,7 @@ class PracticaTest {
             "",
             "src/test/resources/doblevacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
@@ -221,7 +221,7 @@ class PracticaTest {
     //Test
     //un ejecutarConEntradas() {
     //   val ejemplo = Practica("Prueba1", 0, "", "src/test/resources/prueba.cpp", Paths.get("src/test/resources/1"))
-    //   val gcc = Compilador("g++", "Gnu Compiler", null)
+    //   val gcc = Compilador(ConfiguracionTest.COMPILADORCPP.cmd, "Gnu Compiler", null)
     //   ejemplo.generarCarpetaTrab()
     //   ejemplo.compilar(gcc)
     //   ejemplo.crearEntradas()
@@ -236,13 +236,13 @@ class PracticaTest {
             "",
             "src/test/resources/vacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
         ejemplo.crearEntradas()
         ejemplo.ejecutar()
-        val silicon = Capturador("silicon", "silicon", null)
+        val silicon = Capturador(ConfiguracionTest.CAPTURADOR.cmd, "silicon", null)
         ejemplo.crearCapturas(silicon)
         assert(File("src/test/resources/2/capturas").exists())
         assert(File("src/test/resources/2/capturas/codigos").exists())
@@ -260,13 +260,13 @@ class PracticaTest {
             "",
             "src/test/resources/doblevacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
         ejemplo.crearEntradas()
         ejemplo.ejecutar()
-        val silicon = Capturador("silicon", "silicon", null)
+        val silicon = Capturador(ConfiguracionTest.CAPTURADOR.cmd, "silicon", null)
         ejemplo.crearCapturas(silicon)
         assert(File("src/test/resources/2/capturas").exists())
         assert(File("src/test/resources/2/capturas/codigos").exists())
@@ -284,13 +284,13 @@ class PracticaTest {
             "",
             "src/test/resources/vacia.cpp",
             Paths.get("src/test/resources/2"),
-            LenguajeCPP("g++", listOf())
+            LenguajeCPP(ConfiguracionTest.COMPILADORCPP.cmd, listOf())
         )
         ejemplo.generarCarpetaTrab()
         ejemplo.compilar()
         ejemplo.crearEntradas()
         ejemplo.ejecutar()
-        val silicon = Capturador("silicon", "silicon", null)
+        val silicon = Capturador(ConfiguracionTest.CAPTURADOR.cmd, "silicon", null)
         silicon.cambiarOpciones(listOf("--background", "#16f2d5"))
         ejemplo.crearCapturas(silicon)
         assert(File("src/test/resources/2/capturas").exists())
@@ -313,7 +313,7 @@ class PracticaTest {
 //    @Test
 //    fun ejecutarYModificarEntrada() {
 //        val ejemplo = Practica("Prueba2", 1, "", "src/test/resources/prueba.cpp", Paths.get("src/test/resources/2"))
-//        val gcc = Compilador("g++", "Gnu Compiler", null)
+//        val gcc = Compilador(ConfiguracionTest.COMPILADORCPP.cmd, "Gnu Compiler", null)
 //        ejemplo.generarCarpetaTrab()
 //        ejemplo.compilar(gcc)
 //        ejemplo.crearEntradas()

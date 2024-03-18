@@ -13,7 +13,7 @@ class LenguajeJavaTest {
 
     @Test
     fun compilar() {
-        val lenguaje = LenguajeJava("javac", listOf(), "java", listOf())
+        val lenguaje = LenguajeJava(ConfiguracionTest.COMPILADORJAVA.cmd, listOf(), ConfiguracionTest.EJECUTADORJAVA.cmd, listOf())
         val codigo = "src/test/resources/ejemplosJava/holaMundo.java"
         var salida = "src/test/resources/ejemplosJava/"
         salida = lenguaje.compilar(codigo, salida)
@@ -23,7 +23,7 @@ class LenguajeJavaTest {
 
     @Test
     fun compilarBanderas() {
-        val lenguaje = LenguajeJava("javac", listOf("-source", "8"), "java", listOf())
+        val lenguaje = LenguajeJava(ConfiguracionTest.COMPILADORJAVA.cmd, listOf("-source", "8"), ConfiguracionTest.EJECUTADORJAVA.cmd, listOf())
         val codigo = "src/test/resources/ejemplosJava/sumaDos.java"
         var salida = "src/test/resources/ejemplosJava/"
         salida = lenguaje.compilar(codigo, salida)
@@ -33,8 +33,8 @@ class LenguajeJavaTest {
 
     @Test
     fun obtenerEjecucion() {
-        val lenguaje = LenguajeJava("javac", listOf("-source", "8"), "java", listOf())
+        val lenguaje = LenguajeJava(ConfiguracionTest.COMPILADORJAVA.cmd, listOf("-source", "8"), ConfiguracionTest.EJECUTADORJAVA.cmd, listOf())
         val salida = "src/test/resources/ejemplosJava/holamundo.class"
-        assertEquals(listOf("java","-cp","src/test/resources/ejemplosJava","holamundo"), lenguaje.obtenerEjecucion(salida))
+        assertEquals(listOf(ConfiguracionTest.EJECUTADORJAVA.cmd,"-cp","src/test/resources/ejemplosJava","holamundo"), lenguaje.obtenerEjecucion(salida))
     }
 }
