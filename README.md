@@ -35,8 +35,12 @@ y **python** para ejecutar el script de empaquetador
 
 ```sh
 mvn clean
-mvn install
+mvn install # mvn install -DskipTests
 python releaseAssets/empaquetador.py
 ```
+
+En windows, es recomendable ejecutar `mvn install -DskipTests` para empaquetar,
+ya que los tests no son amigables con Windows, pero esto SOLO si quiere
+**_EMPAQUETAR_**
 
 y los paquetes se encuentran en `target/paquetes`
