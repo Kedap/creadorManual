@@ -1,7 +1,9 @@
 # Creador de manuales
+
 Un creador de manual simple
 
 ## Dependencias
+
 - [JRE](https://www.java.com/es/download/manual.jsp)
 - `leafpad` si esta en Linux
 - Capturadores como [silicon](https://github.com/Aloxaf/silicon) y/o [germanium](https://github.com/matsuyoshi30/germanium)
@@ -11,8 +13,9 @@ En el caso de que se este ejecutando en Windows, se necesita configurar un compi
 solo asegúrese de que el compilador se encuentre dentro del PATH de ejecución, en el mismo que se ejecuta `manualCreator`
 
 ## Descarga
+
 Después de haber leído las [dependencias](#dependencias) puedes descargar el paquete
-en este [link](https://github.com/Kedap/creadorManual/releases/latest), selecciona de 
+en este [link](https://github.com/Kedap/creadorManual/releases/latest), selecciona de
 acuerdo a tu sistema operativo
 
 ![Captura](./screenshot.png)
