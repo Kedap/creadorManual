@@ -22,7 +22,23 @@ def obtener_version(version, tipo_version: Versiones):
         return f"{version}-{tipo_version.value}"
 
 
+def obtener_version_empaquetado(version, tipo_version: Versiones):
+    if tipo_version == Versiones.RELEASE:
+        return version
+    elif tipo_version == Versiones.SNAPSHOT:
+        import datetime as dt
+
+        ahora = dt.datetime.now()
+        dia = ahora.strftime("%w")
+        mes = ahora.strftime("%m")
+        hora = ahora.strftime("%H")
+        return f"{version}-{tipo_version.value}_{hora}{dia}{mes}"
+    else:
+        return f"{version}-{tipo_version.value}"
+
+
 VERSION_ACTUAL = obtener_version(NUMERO_VERSION, TIPO_VERSION)
+VERSION_EMPAQUETADO = obtener_version_empaquetado(NUMERO_VERSION, TIPO_VERSION)
 RUTA_RELASSETS = Path(os.path.realpath(__file__)).parent
 RUTA_REPO = Path(os.path.realpath(__file__)).parent.parent
 RUTA_TARGET = Path(RUTA_REPO, "target")
@@ -67,20 +83,24 @@ shutil.copy2(ruta_capturador, Path(RUTA_BIN_LIN, "silicon"))
 ruta_capturador = Path(RUTA_RELASSETS, "linux", "germanium")
 shutil.copy2(ruta_capturador, Path(RUTA_BIN_LIN, "germanium"))
 
-shutil.copy(RUTA_ARTEFACTO, Path(RUTA_PAQ_WIN, f"creadorManual-{VERSION_ACTUAL}.jar"))
-shutil.copy(RUTA_ARTEFACTO, Path(RUTA_PAQ_LIN, f"creadorManual-{VERSION_ACTUAL}.jar"))
+shutil.copy(
+    RUTA_ARTEFACTO, Path(RUTA_PAQ_WIN, f"creadorManual-{VERSION_EMPAQUETADO}.jar")
+)
+shutil.copy(
+    RUTA_ARTEFACTO, Path(RUTA_PAQ_LIN, f"creadorManual-{VERSION_EMPAQUETADO}.jar")
+)
 
 launcher_windows = open(str(Path(RUTA_PAQ_WIN, "creadorManual.bat")), "x")
-launcher_windows.write(f"java -jar creadorManual-{VERSION_ACTUAL}.jar")
+launcher_windows.write(f"java -jar creadorManual-{VERSION_EMPAQUETADO}.jar")
 launcher_windows.close()
 
 shutil.make_archive(
-    str(Path(RUTA_PAQUETES, f"windows-creadorManual-{VERSION_ACTUAL}")),
+    str(Path(RUTA_PAQUETES, f"windows-creadorManual-{VERSION_EMPAQUETADO}")),
     "zip",
     RUTA_PAQ_WIN,
 )
 shutil.make_archive(
-    str(Path(RUTA_PAQUETES, f"linux-creadorManual-{VERSION_ACTUAL}")),
+    str(Path(RUTA_PAQUETES, f"linux-creadorManual-{VERSION_EMPAQUETADO}")),
     "gztar",
     RUTA_PAQ_WIN,
 )
