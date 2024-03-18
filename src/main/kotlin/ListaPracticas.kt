@@ -48,9 +48,10 @@ class ListaPracticas(private val ruta: String) {
         if (practicasIrregulares == 0) {
             return dividirPracticas(practicas, 0, numPorCompendio)
         } else {
-            val listaRegulares = practicas.slice(0..<numPorCompendio)
+            val practicasRegulares = practicas.size - practicasIrregulares
+            val listaRegulares = practicas.slice(0..<practicasRegulares)
             val compendios = dividirPracticas(listaRegulares, 0, numPorCompendio)
-            val listaIrregulares = practicas.slice(numPorCompendio..<practicas.size)
+            val listaIrregulares = practicas.slice(practicasRegulares..<practicas.size)
             val compendiosIrregulares =
                 dividirPracticas(listaIrregulares, compendios.last().numeroCompendio + 1, practicasIrregulares)
             return compendios.plus(compendiosIrregulares)
