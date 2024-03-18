@@ -12,7 +12,7 @@ class Versiones(Enum):
 
 
 NUMERO_VERSION = "1.2.0"
-TIPO_VERSION = Versiones.SNAPSHOT
+TIPO_VERSION = Versiones.BETA
 
 
 def obtener_version(version, tipo_version: Versiones):
