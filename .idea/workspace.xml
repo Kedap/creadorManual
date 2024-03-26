@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="Salto version 2.0">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/isc415x/dan/creadormanual/cdmgui/HelloApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/isc4x51/dan/creadormanual/cdmgui/HelloApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/isc415x/dan/creadormanual/cdmgui/HelloController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/isc4x51/dan/creadormanual/cdmgui/HelloController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/isc415x/dan/creadormanual/cdmgui/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/isc4x51/dan/creadormanual/cdmgui/hello-view.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="Salto version 2.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,12 +64,17 @@
   "keyToString": {
     "Gradle.Build creadorManual.executor": "Run",
     "Gradle.Build creadorManualSi.executor": "Run",
+    "Gradle.Load Gradle Dependencies.executor": "Run",
     "Gradle.creadorManual [build].executor": "Run",
     "Gradle.creadorManual [clean].executor": "Run",
+    "Gradle.creadorManual [compileJava].executor": "Run",
     "Gradle.creadorManual [dependencies].executor": "Run",
+    "Gradle.creadorManual [help].executor": "Run",
     "Gradle.creadorManual [jar].executor": "Run",
     "Gradle.creadorManual [jpackage].executor": "Run",
+    "Gradle.creadorManual [properties].executor": "Run",
     "Gradle.creadorManual [run].executor": "Run",
+    "Gradle.creadorManual [tasks].executor": "Run",
     "Gradle.creadorManualSi [run].executor": "Run",
     "Kotlin.HelloApplicationKt (1).executor": "Run",
     "Kotlin.HelloApplicationKt.executor": "Run",
@@ -83,12 +82,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.creadorManual [run]">
+  <component name="RunManager" selected="Kotlin.HelloApplicationKt">
     <configuration name="creadorManual [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -111,7 +110,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="creadorManual [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="creadorManual [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -122,7 +121,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value="compileJava" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -133,7 +132,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="creadorManual [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="creadorManual [help]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -144,7 +143,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jar" />
+            <option value="help" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -177,7 +176,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="HelloApplicationKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="HelloApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.isc4x51.dan.creadormanual.cdmgui.HelloApplicationKt" />
       <module name="cdmgui.main" />
       <method v="2">
@@ -199,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.HelloApplicationKt" />
         <item itemvalue="Gradle.creadorManual [run]" />
+        <item itemvalue="Gradle.creadorManual [compileJava]" />
         <item itemvalue="Gradle.creadorManual [clean]" />
-        <item itemvalue="Kotlin.HelloApplicationKt (1)" />
-        <item itemvalue="Gradle.creadorManual [jar]" />
-        <item itemvalue="Gradle.creadorManual [dependencies]" />
+        <item itemvalue="Gradle.creadorManual [help]" />
       </list>
     </recent_temporary>
   </component>
