@@ -4,68 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/releaseAssets/empaquetador.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/releaseAssets/formato_prompt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/releaseAssets/linux/germanium" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/releaseAssets/linux/silicon" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/releaseAssets/plantilla.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/releaseAssets/windows/silicon.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CompendioPracticas.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EntradaEjecutable.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/EscribirCSV.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ListaPracticas.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Practica.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/SistemaOperativo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cli/AbsEntradaUsuario.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cli/EntradaUsuario.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cli/EntradaUsuarioCerrada.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cli/EntradaUsuarioOmision.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/lenguajes/FabricaCPP.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/lenguajes/FabricaJava.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/lenguajes/FabricaLenguaje.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/lenguajes/Lenguaje.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/lenguajes/LenguajeCPP.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/lenguajes/LenguajeJava.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utilidadesEjecutables/Capturador.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utilidadesEjecutables/EditorTexto.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utilidadesEjecutables/UtilidadEjecutable.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/CompendioPracticasTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ConfiguracionTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/EscribirCSVKtTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/ListaPracticasTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/PracticaTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/lenguajes/LenguajeCPPTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/lenguajes/LenguajeJavaTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/doblevacia.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosCodigo/entrada.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosCodigo/hola_mundo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosCodigo/iteracion.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosCodigo/matrices.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosCodigo/tabla9.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosCodigo/todas_tablas.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosJava/Alumno.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosJava/factorial.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosJava/holaMundo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/ejemplosJava/sumaDos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/formato_esperado.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/formato_gpt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/prueba.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/test.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/testRepetido.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/vacia.cpp" beforeDir="false" />
+    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="Salto version 2.0">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/isc415x/dan/creadormanual/cdmgui/HelloApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/isc4x51/dan/creadormanual/cdmgui/HelloApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/isc415x/dan/creadormanual/cdmgui/HelloController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/isc4x51/dan/creadormanual/cdmgui/HelloController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/isc415x/dan/creadormanual/cdmgui/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/isc4x51/dan/creadormanual/cdmgui/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,27 +66,101 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build creadorManualSi.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.creadorManualSi [run].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.HelloApplicationKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build creadorManual.executor": "Run",
+    "Gradle.Build creadorManualSi.executor": "Run",
+    "Gradle.creadorManual [build].executor": "Run",
+    "Gradle.creadorManual [clean].executor": "Run",
+    "Gradle.creadorManual [dependencies].executor": "Run",
+    "Gradle.creadorManual [jar].executor": "Run",
+    "Gradle.creadorManual [jpackage].executor": "Run",
+    "Gradle.creadorManual [run].executor": "Run",
+    "Gradle.creadorManualSi [run].executor": "Run",
+    "Kotlin.HelloApplicationKt (1).executor": "Run",
+    "Kotlin.HelloApplicationKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
-  <component name="RunManager" selected="Gradle.creadorManualSi [run]">
-    <configuration name="creadorManualSi [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+}]]></component>
+  <component name="RunManager" selected="Gradle.creadorManual [run]">
+    <configuration name="creadorManual [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="creadorManual [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="creadorManual [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="creadorManual [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -159,8 +177,8 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="HelloApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.isc415x.dan.creadormanual.cdmgui.HelloApplicationKt" />
+    <configuration name="HelloApplicationKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.isc4x51.dan.creadormanual.cdmgui.HelloApplicationKt" />
       <module name="cdmgui.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -181,8 +199,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.creadorManualSi [run]" />
-        <item itemvalue="Kotlin.HelloApplicationKt" />
+        <item itemvalue="Gradle.creadorManual [run]" />
+        <item itemvalue="Gradle.creadorManual [clean]" />
+        <item itemvalue="Kotlin.HelloApplicationKt (1)" />
+        <item itemvalue="Gradle.creadorManual [jar]" />
+        <item itemvalue="Gradle.creadorManual [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -195,6 +216,19 @@
       <option name="presentableId" value="Default" />
       <updated>1711418543687</updated>
     </task>
+    <task id="LOCAL-00001" summary="Salto version 2.0">
+      <option name="closed" value="true" />
+      <created>1711419043892</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711419043892</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Salto version 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Salto version 2.0" />
   </component>
 </project>

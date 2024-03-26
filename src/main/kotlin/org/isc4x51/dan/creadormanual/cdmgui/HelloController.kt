@@ -1,4 +1,4 @@
-package org.isc415x.dan.creadormanual.cdmgui
+package org.isc4x51.dan.creadormanual.cdmgui
 
 import javafx.fxml.FXML
 import javafx.scene.control.Label

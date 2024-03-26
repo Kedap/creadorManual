@@ -7,7 +7,7 @@ plugins {
     id 'org.beryx.jlink' version '2.25.0'
 }
 
-group 'org.isc415x.dan.creadorManual'
+group 'org.isc4x51.dan.creadorManual'
 version '2.0-SNAPSHOT'
 
 repositories {
@@ -24,8 +24,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'org.isc415x.dan.creadormanual.cdmgui'
-    mainClass = 'org.isc415x.dan.creadormanual.cdmgui.HelloApplication'
+    mainModule = 'org.isc4x51.dan.creadormanual.cdmgui'
+    mainClass = 'org.isc4x51.dan.creadormanual.cdmgui.HelloApplication'
 }
 kotlin {
     jvmToolchain(17)
