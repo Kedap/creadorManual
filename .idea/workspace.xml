@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="feat(cdmlib): creando la libreria cdmlib">
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/main/kotlin/EntradaEjecutable.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/main/kotlin/SistemaOperativo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/main/kotlin/lenguajes/Lenguaje.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/main/kotlin/lenguajes/LenguajeCPP.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/main/kotlin/lenguajes/LenguajeJava.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/test/kotlin/lenguajes/ConfiguracionDeTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/test/kotlin/lenguajes/LenguajeCPPTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cdmlib/src/test/kotlin/lenguajes/LenguajeJavaTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cdmlib/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/cdmlib/build.gradle.kts" afterDir="false" />
-    </list>
+    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="feat(cdmlib/Lenguaje): agregando los lenguajes soportados" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,6 +111,8 @@
     "Gradle.creadorManualSi [run].executor": "Run",
     "JUnit.LenguajeCPPTest.compilarBanderas.executor": "Run",
     "JUnit.LenguajeCPPTest.executor": "Run",
+    "JUnit.LenguajeJavaTest.executor": "Run",
+    "JUnit.LenguajeJavaTest.obtenerEjecucion.executor": "Run",
     "Kotlin.HelloApplicationKt (1).executor": "Run",
     "Kotlin.HelloApplicationKt.executor": "Run",
     "Kotlin.MainKt.executor": "Run",
@@ -286,12 +276,32 @@
       <option name="project" value="LOCAL" />
       <updated>1711505259131</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat(cdmlib/Lenguaje): agregando los lenguajes soportados">
+      <option name="closed" value="true" />
+      <created>1711512862139</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711512862139</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Salto version 2.0" />
     <MESSAGE value="feat(cdmlib): creando la libreria cdmlib" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(cdmlib): creando la libreria cdmlib" />
+    <MESSAGE value="feat(cdmlib/Lenguaje): agregando los lenguajes soportados" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(cdmlib/Lenguaje): agregando los lenguajes soportados" />
   </component>
 </project>
