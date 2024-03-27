@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="feat(cdmlib/Lenguaje): agregando los lenguajes soportados" />
+    <list default="true" id="a5e0e08e-cadf-4a44-b575-a04f0dd330ac" name="Changes" comment="feat(cdmlib/Lenguaje): agregando los lenguajes soportados">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,51 +90,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.Build creadorManual.executor": "Run",
-    "Gradle.Build creadorManualSi.executor": "Run",
-    "Gradle.LenguajeCPPTest.compilar.executor": "Run",
-    "Gradle.Load Gradle Dependencies.executor": "Run",
-    "Gradle.creadorManual [build].executor": "Run",
-    "Gradle.creadorManual [clean].executor": "Run",
-    "Gradle.creadorManual [compileJava].executor": "Run",
-    "Gradle.creadorManual [dependencies].executor": "Run",
-    "Gradle.creadorManual [help].executor": "Run",
-    "Gradle.creadorManual [jar].executor": "Run",
-    "Gradle.creadorManual [jpackage].executor": "Run",
-    "Gradle.creadorManual [properties].executor": "Run",
-    "Gradle.creadorManual [run].executor": "Run",
-    "Gradle.creadorManual [tasks].executor": "Run",
-    "Gradle.creadorManual:cdmlib [build].executor": "Run",
-    "Gradle.creadorManual:cdmlib [clean].executor": "Run",
-    "Gradle.creadorManual:cdmlib [testClasses].executor": "Run",
-    "Gradle.creadorManual:cdmlib [test].executor": "Run",
-    "Gradle.creadorManualSi [run].executor": "Run",
-    "JUnit.LenguajeCPPTest.compilarBanderas.executor": "Run",
-    "JUnit.LenguajeCPPTest.executor": "Run",
-    "JUnit.LenguajeJavaTest.executor": "Run",
-    "JUnit.LenguajeJavaTest.obtenerEjecucion.executor": "Run",
-    "Kotlin.HelloApplicationKt (1).executor": "Run",
-    "Kotlin.HelloApplicationKt.executor": "Run",
-    "Kotlin.MainKt.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "dev",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.Build creadorManual.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build creadorManualSi.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LenguajeCPPTest.compilar.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [compileJava].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [help].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [jpackage].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [properties].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual [tasks].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual:cdmlib [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual:cdmlib [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual:cdmlib [testClasses].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManual:cdmlib [test].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.creadorManualSi [run].executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LenguajeCPPTest.compilarBanderas.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LenguajeCPPTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LenguajeJavaTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LenguajeJavaTest.obtenerEjecucion.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.HelloApplicationKt (1).executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.HelloApplicationKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
