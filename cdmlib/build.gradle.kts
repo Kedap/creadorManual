@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+    implementation("org.apache.commons:commons-io:1.3.2")
 }
 
 tasks.test {
