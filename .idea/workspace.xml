@@ -144,31 +144,7 @@
       <recent name="Lenguajes" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LenguajeJavaTest.obtenerEjecucion">
-    <configuration name="LenguajeCPPTest.compilar" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cdmlib:test" />
-            <option value="--tests" />
-            <option value="&quot;Lenguajes.LenguajeCPPTest.compilar&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="LenguajeCPPTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cdmgui.cdmlib.test" />
       <extension name="coverage">
@@ -231,6 +207,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.isc4x51.dan.creadorManual.MainKt" />
+      <module name="cdmgui.cdmlib.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="creadorManualSi" />
       <method v="2">
@@ -246,11 +229,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="JUnit.LenguajeJavaTest.obtenerEjecucion" />
         <item itemvalue="JUnit.LenguajeJavaTest" />
         <item itemvalue="JUnit.LenguajeCPPTest" />
         <item itemvalue="JUnit.LenguajeCPPTest.compilarBanderas" />
-        <item itemvalue="Gradle.LenguajeCPPTest.compilar" />
       </list>
     </recent_temporary>
   </component>
