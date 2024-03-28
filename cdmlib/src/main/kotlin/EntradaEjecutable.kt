@@ -5,5 +5,5 @@ package org.isc4x51.dan.creadorManual
  */
 data class EntradaEjecutable(
     val mensaje: String,
-    val entrada: String?
+    var entrada: String?
 )
