@@ -16,7 +16,7 @@ class LenguajeCPPTest {
     @Test
     fun compilar() {
         val lenguaje = LenguajeCPP(ConfiguracionDeTest.COMPILADORCPP.cmd, listOf())
-        val codigo = Path("src/test/resources/simpleCpp.cpp")
+        val codigo = Path("src/test/resources/cpp/simpleCpp.cpp")
         var salida = Path("src/test/resources/")
         salida = lenguaje.compilar(codigo, salida)
         assert(salida.exists())
@@ -26,7 +26,7 @@ class LenguajeCPPTest {
     @Test
     fun compilarBanderas() {
         val lenguaje = LenguajeCPP(ConfiguracionDeTest.COMPILADORCPP.cmd, listOf("-Wall"))
-        val codigo = Path("src/test/resources/simpleCpp.cpp")
+        val codigo = Path("src/test/resources/cpp/simpleCpp.cpp")
         var salida = Path("src/test/resources/")
         salida = lenguaje.compilar(codigo, salida)
         assert(salida.exists())
@@ -36,7 +36,7 @@ class LenguajeCPPTest {
     @Test
     fun compilarSecundario() {
         val lenguaje = LenguajeCPP(ConfiguracionDeTest.COMPILADORCPP_SECUNDARIO.cmd, listOf())
-        val codigo = Path("src/test/resources/simpleCpp.cpp")
+        val codigo = Path("src/test/resources/cpp/simpleCpp.cpp")
         var salida = Path("src/test/resources/")
         salida = lenguaje.compilar(codigo, salida)
         assert(salida.exists())

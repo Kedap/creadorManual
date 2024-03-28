@@ -20,8 +20,8 @@ class LenguajeJavaTest {
             ConfiguracionDeTest.EJECUTADORJAVA.cmd,
             listOf()
         )
-        val codigo = Path("src/test/resources/pruebaJava/holaMundo.java")
-        var salida = Path("src/test/resources/pruebaJava")
+        val codigo = Path("src/test/resources/java/holaMundo.java")
+        var salida = Path("src/test/resources/java")
         salida = lenguaje.compilar(codigo, salida)
         assert(salida.toFile().exists())
         limpiar(salida)
@@ -35,8 +35,8 @@ class LenguajeJavaTest {
             ConfiguracionDeTest.EJECUTADORJAVA.cmd,
             listOf()
         )
-        val codigo = Path("src/test/resources/pruebaJava/holaMundo.java")
-        var salida = Path("src/test/resources/pruebaJava")
+        val codigo = Path("src/test/resources/java/holaMundo.java")
+        var salida = Path("src/test/resources/java")
         salida = lenguaje.compilar(codigo, salida)
         assert(salida.toFile().exists())
         this.limpiar(salida)
@@ -50,12 +50,12 @@ class LenguajeJavaTest {
             ConfiguracionDeTest.EJECUTADORJAVA.cmd,
             listOf()
         )
-        val salida = Path("src/test/resources/pruebaJava/holaMundo.class")
+        val salida = Path("src/test/resources/java/holaMundo.class")
         assertEquals(
             listOf(
                 ConfiguracionDeTest.EJECUTADORJAVA.cmd,
                 "-cp",
-                "src/test/resources/pruebaJava",
+                "src/test/resources/java",
                 "holaMundo"
             ), lenguaje.obtenerEjecucion(salida)
         )
